@@ -9,9 +9,11 @@
           <div v-else>No scheduled activation/deactivation</div>
         </q-card-section>
         <q-card-actions>
-          <q-btn :color="dout1Active ? 'negative' : 'primary'"
-                 :label="dout1Active ? 'Deactivate DOUT1' : 'Activate DOUT1'"
-                 @click="toggleDOUT1" />
+          <q-btn
+            :color="dout1Active ? 'negative' : 'primary'"
+            :label="dout1Active ? 'Deactivate DOUT1' : 'Activate DOUT1'"
+            @click="toggleDOUT1"
+          />
         </q-card-actions>
       </q-card>
     </div>
@@ -24,7 +26,7 @@ import axios from 'axios'
 
 export default {
   setup() {
-    const imei = ref('YOUR_IMEI_HERE') // Replace with your device's IMEI
+    const imei = ref('350317177312182') // Replace with your device's IMEI
     const dout1Active = ref(false)
     const deactivateTime = ref(null)
     const countdown = ref('')
@@ -33,7 +35,7 @@ export default {
 
     const fetchStatus = async () => {
       try {
-        const response = await axios.get(`http://YOUR_SERVER_IP:5000/dout1_status/${imei.value}`)
+        const response = await axios.get(`https://satgroupe.com:50121/dout1_status/${imei.value}`)
         dout1Active.value = response.data.dout1_active
         deactivateTime.value = response.data.deactivate_time
         updateCountdown()
@@ -62,7 +64,9 @@ export default {
           const minutes = Math.floor(seconds / 60)
           const hours = Math.floor(minutes / 60)
           countdown.value = `${hours}h ${minutes % 60}m ${seconds % 60}s`
-          countdownLabel.value = dout1Active.value ? 'Time until deactivation' : 'Time until activation'
+          countdownLabel.value = dout1Active.value
+            ? 'Time until deactivation'
+            : 'Time until activation'
         } else {
           countdown.value = ''
           fetchStatus()
@@ -85,8 +89,8 @@ export default {
       dout1Active,
       countdown,
       countdownLabel,
-      toggleDOUT1
+      toggleDOUT1,
     }
-  }
+  },
 }
 </script>
