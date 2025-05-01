@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit;
 }
 header('Access-Control-Allow-Origin: *');
-$log_file = './api_server.log'; // Replace 'username' with your cPanel username
+$log_file = 'api_server.log'; // Replace 'username' with your cPanel username
 function log_message($level, $message) {
     global $log_file;
     $timestamp = date('Y-m-d H:i:s');
@@ -33,7 +33,7 @@ try {
 }
 
 // SQLite database
-$db_file = './grok_fmb_data_v6.db'; // Replace 'username' with your cPanel username
+$db_file = 'grok_fmb_data_v6.db'; // Replace 'username' with your cPanel username
 try {
     // Create database and tables if they don't exist
     $db = new SQLite3($db_file);

@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: fmb-api
+    env: php
+    plan: free
+    buildCommand: ''
+    startCommand: 'php -S 0.0.0.0:$PORT api.php'
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
+    envVars:
+      - key: PHP_VERSION
+        value: 8.0
+
+  - type: worker
+    name: fmb-tcp-server
+    env: python
+    plan: free
+    buildCommand: 'pip install -r requirements.txt'
+    startCommand: 'python tcp_server.py'
+    autoDeploy: true
+    disk:
+      name: data
+      mountPath: /opt/render/project/src
+      sizeGB: 1
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.7
