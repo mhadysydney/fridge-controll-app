@@ -12,6 +12,10 @@
     "test": "echo \"No test specified\" && exit 0",
     "dev": "quasar dev",
     "build": "quasar build",
+    "android": "quasar d -m capacitor -T android",
+    "bandroid": "quasar b -m capacitor -T android",
+    "ios": "quasar d -m capacitor -T ios",
+    "bios": "quasar b -m capacitor -T ios",
     "postinstall": "quasar prepare"
   },
   "dependencies": {

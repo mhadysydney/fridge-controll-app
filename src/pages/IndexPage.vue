@@ -1,96 +1,181 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page padding>
     <div class="q-pa-md">
-      <h4>DOUT1 Control</h4>
-      <q-card class="q-ma-md">
-        <q-card-section>
-          <div>DOUT1 Status: {{ dout1Active ? 'Active' : 'Inactive' }}</div>
-          <div v-if="countdown">{{ countdownLabel }}: {{ countdown }}</div>
-          <div v-else>No scheduled activation/deactivation</div>
-        </q-card-section>
-        <q-card-actions>
-          <q-btn
-            :color="dout1Active ? 'negative' : 'primary'"
-            :label="dout1Active ? 'Deactivate DOUT1' : 'Activate DOUT1'"
-            @click="toggleDOUT1"
-          />
-        </q-card-actions>
-      </q-card>
+      <h5>DOUT1 Control</h5>
+      <q-input
+        v-model="imei"
+        label="Enter IMEI"
+        filled
+        class="q-mb-md"
+        :rules="[(val) => !!val || 'IMEI is required']"
+      />
+      <q-btn
+        :label="status ? 'Deactivate DOUT1' : 'Activate DOUT1'"
+        :color="status ? 'negative' : 'primary'"
+        :loading="loading"
+        :disable="!imei"
+        @click="toggleDout1"
+        class="q-mb-md full-width"
+      />
+      <div v-if="error" class="text-negative q-mb-md">
+        {{ error }}
+      </div>
+      <div v-if="status !== null" class="q-mb-md">
+        <p>
+          DOUT1 Status: <strong>{{ status ? 'Active' : 'Inactive' }}</strong>
+        </p>
+        <div v-if="countdown > 0">
+          <q-circular-progress
+            show-value
+            font-size="14px"
+            :value="countdownProgress"
+            size="100px"
+            :thickness="0.2"
+            color="primary"
+            track-color="grey-3"
+            :min="0"
+            :max="countdownDuration"
+            class="q-ma-md"
+          >
+            {{ Math.ceil(countdown / 1000) }}s
+          </q-circular-progress>
+          <p>Time until deactivation: {{ Math.ceil(countdown / 1000) }} seconds</p>
+        </div>
+        <div v-else-if="status">
+          <p>No deactivation scheduled</p>
+        </div>
+      </div>
     </div>
   </q-page>
 </template>
 
 <script>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import axios from 'axios'
 
 export default {
+  name: 'IndexPage',
   setup() {
-    const imei = ref('350317177312182') // Replace with your device's IMEI
-    const dout1Active = ref(false)
-    const deactivateTime = ref(null)
-    const countdown = ref('')
-    const countdownLabel = ref('')
-    let timer = null
+    const apiBaseUrl = 'https://iot.satgroupe.com' // Replace with your cPanel domain
+    const imei = ref('350317177312182') // Replace with a default IMEI or keep as user input
+    const status = ref(null) // DOUT1 active status (true/false)
+    const deactivateTime = ref(null) // Deactivation timestamp
+    const countdown = ref(0) // Countdown in milliseconds
+    const countdownDuration = ref(0) // Total countdown duration in milliseconds
+    const loading = ref(false)
+    const error = ref(null)
+    let countdownInterval = null
 
-    const fetchStatus = async () => {
-      try {
-        const response = await axios.get(`https://satgroupe.com:50121/dout1_status/${imei.value}`)
-        dout1Active.value = response.data.dout1_active
-        deactivateTime.value = response.data.deactivate_time
-        updateCountdown()
-      } catch (error) {
-        console.error('Error fetching status:', error)
-      }
-    }
-
-    const toggleDOUT1 = async () => {
-      try {
-        const activate = !dout1Active.value
-        await axios.post(`http://YOUR_SERVER_IP:5000/dout1_control/${imei.value}`, { activate })
-        await fetchStatus()
-      } catch (error) {
-        console.error('Error controlling DOUT1:', error)
-      }
-    }
-
-    const updateCountdown = () => {
-      if (deactivateTime.value) {
-        const now = new Date()
-        const deactivate = new Date(deactivateTime.value)
-        const diff = deactivate - now
-        if (diff > 0) {
-          const seconds = Math.floor(diff / 1000)
-          const minutes = Math.floor(seconds / 60)
-          const hours = Math.floor(minutes / 60)
-          countdown.value = `${hours}h ${minutes % 60}m ${seconds % 60}s`
-          countdownLabel.value = dout1Active.value
-            ? 'Time until deactivation'
-            : 'Time until activation'
-        } else {
-          countdown.value = ''
-          fetchStatus()
-        }
-      } else {
-        countdown.value = ''
-      }
-    }
-
-    onMounted(() => {
-      fetchStatus()
-      timer = setInterval(updateCountdown, 1000)
+    // Compute countdown progress for Q-Circular-Progress
+    const countdownProgress = computed(() => {
+      return countdownDuration.value - countdown.value
     })
 
+    // Fetch DOUT1 status
+    const fetchStatus = async () => {
+      if (!imei.value) return
+      loading.value = true
+      error.value = null
+      try {
+        const response = await axios.get(`${apiBaseUrl}/dout1_status/${imei.value}`)
+        status.value = response.data.dout1_active
+        console.log('status: ', status.value, '\ndeactivateTime.value: ', deactivateTime.value)
+
+        deactivateTime.value = response.data.deactivate_time
+        if (deactivateTime.value) {
+          startCountdown()
+        } else {
+          stopCountdown()
+          countdown.value = 0
+        }
+      } catch (err) {
+        error.value = err.response?.data?.error || 'Failed to fetch status'
+        status.value = null
+        stopCountdown()
+      } finally {
+        loading.value = false
+      }
+    }
+
+    // Toggle DOUT1 (activate/deactivate)
+    const toggleDout1 = async () => {
+      if (!imei.value) return
+      loading.value = true
+      error.value = null
+      try {
+        const response = await axios.post(`${apiBaseUrl}/dout1_control/${imei.value}`, {
+          activate: !status.value,
+        })
+        if (response.data.status === 'queued') {
+          await fetchStatus() // Refresh status after command
+        }
+      } catch (err) {
+        error.value = err.response?.data?.error || 'Failed to control DOUT1'
+      } finally {
+        loading.value = false
+      }
+    }
+
+    // Start countdown based on deactivate_time
+    const startCountdown = () => {
+      stopCountdown() // Clear existing interval
+      const deactivateDate = new Date(deactivateTime.value)
+      const now = new Date()
+      countdownDuration.value = Math.max(0, deactivateDate - now)
+      countdown.value = countdownDuration.value
+
+      if (countdown.value > 0) {
+        countdownInterval = setInterval(() => {
+          countdown.value -= 1000
+          if (countdown.value <= 0) {
+            stopCountdown()
+            fetchStatus() // Refresh status when countdown ends
+          }
+        }, 1000)
+      }
+    }
+
+    // Stop countdown
+    const stopCountdown = () => {
+      if (countdownInterval) {
+        clearInterval(countdownInterval)
+        countdownInterval = null
+      }
+    }
+
+    // Fetch status on mount
+    onMounted(() => {
+      if (imei.value) {
+        fetchStatus()
+      }
+    })
+
+    // Clean up interval on unmount
     onUnmounted(() => {
-      if (timer) clearInterval(timer)
+      stopCountdown()
     })
 
     return {
-      dout1Active,
+      imei,
+      status,
       countdown,
-      countdownLabel,
-      toggleDOUT1,
+      countdownDuration,
+      countdownProgress,
+      loading,
+      error,
+      toggleDout1,
     }
   },
 }
 </script>
+
+<style scoped>
+.q-page {
+  display: flex;
+  justify-content: center;
+}
+.q-pa-md {
+  max-width: 500px;
+  width: 100%;
+}
+</style>

@@ -3,66 +3,25 @@ import struct
 import logging
 import sqlite3
 from datetime import datetime, timedelta
-from flask import Flask, jsonify, request
-from threading import Thread
+import crcmod
 
 # Configure logging
-logging.basicConfig(filename='fmb_server.log', level=logging.INFO,
+logging.basicConfig(filename='grok_tcp_server_v6.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Server configuration
-HOST = '0.0.0.0'
+HOST = '127.0.0.1'  # Localhost for cron
 PORT = 12345
-FLASK_PORT = 5000
-RESPONSE_TIMEOUT = 5  # Seconds to wait for device response
-
-# SQLite database setup
-DB_NAME = 'fmb_data.db'
-
-# DOUT1 configuration
-DOUT1_IO_ID = 179  # Adjust if your device uses a different IO ID for DOUT1
-TIMEOUT_12H = 12 * 3600  # 12 hours in seconds
-ACTIVATION_DURATION = 4000  # 4000 seconds
-
-# Flask app
-app = Flask(__name__)
-
-def create_db():
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute('''CREATE TABLE IF NOT EXISTS gps_data
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  imei TEXT,
-                  timestamp TEXT,
-                  latitude REAL,
-                  longitude REAL,
-                  altitude INTEGER,
-                  speed REAL,
-                  angle REAL,
-                  satellites INTEGER,
-                  priority INTEGER)''')
-    c.execute('''CREATE TABLE IF NOT EXISTS io_data
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  imei TEXT,
-                  timestamp TEXT,
-                  io_id INTEGER,
-                  io_value INTEGER)''')
-    c.execute('''CREATE TABLE IF NOT EXISTS dout1_state
-                 (imei TEXT PRIMARY KEY,
-                  last_dout1_zero_time TEXT,
-                  dout1_active INTEGER,
-                  deactivate_time TEXT)''')
-    c.execute('''CREATE TABLE IF NOT EXISTS command_queue
-                 (id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  imei TEXT,
-                  command TEXT,
-                  created_at TEXT,
-                  sent INTEGER DEFAULT 0)''')
-    conn.commit()
-    conn.close()
+DB_NAME = 'grok_fmb_data_v6.db'
+DOUT1_IO_ID = 179
+TIMEOUT_12H = 12 * 3600
+ACTIVATION_DURATION = 4000
+RESPONSE_TIMEOUT = 5
+crc16 = crcmod.mkCrcFun(0x18005, initCrc=0x0000, rev=False)
 
 def insert_gps_data(imei, timestamp, latitude, longitude, altitude, speed, angle, satellites, priority):
     dt = datetime.fromtimestamp(timestamp / 1000.0).strftime('%Y-%m-%d %H:%M:%S')
+    logging.info(f"Inserting gps_data for IMEI {imei}: timestamp={dt}")
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("INSERT INTO gps_data (imei, timestamp, latitude, longitude, altitude, speed, angle, satellites, priority) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -72,6 +31,7 @@ def insert_gps_data(imei, timestamp, latitude, longitude, altitude, speed, angle
 
 def insert_io_data(imei, timestamp, io_id, io_value):
     dt = datetime.fromtimestamp(timestamp / 1000.0).strftime('%Y-%m-%d %H:%M:%S')
+    logging.info(f"Inserting io_data for IMEI {imei}: timestamp={dt}, io_id={io_id}")
     conn = sqlite3.connect(DB_NAME)
     c = conn.cursor()
     c.execute("INSERT INTO io_data (imei, timestamp, io_id, io_value) VALUES (?, ?, ?, ?)",
@@ -81,7 +41,6 @@ def insert_io_data(imei, timestamp, io_id, io_value):
     return dt
 
 def update_dout1_state(imei, dout1_value, timestamp_str, conn):
-    """Update DOUT1 state and queue command, return command if needed"""
     conn_db = sqlite3.connect(DB_NAME)
     c = conn_db.cursor()
     c.execute("SELECT last_dout1_zero_time, dout1_active, deactivate_time FROM dout1_state WHERE imei = ?", (imei,))
@@ -95,7 +54,6 @@ def update_dout1_state(imei, dout1_value, timestamp_str, conn):
             deactivate_time = datetime.strptime(deactivate_time_str, '%Y-%m-%d %H:%M:%S')
             if now >= deactivate_time:
                 command = "setdigout 0"
-                # Only update state if command is successful
                 if send_command_with_response(conn, command, imei):
                     c.execute("UPDATE dout1_state SET dout1_active = 0, deactivate_time = NULL WHERE imei = ?", (imei,))
                     logging.info(f"Deactivated DOUT1 for IMEI {imei}")
@@ -122,28 +80,57 @@ def update_dout1_state(imei, dout1_value, timestamp_str, conn):
     conn_db.close()
     return command
 
-def queue_command(imei, command):
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    created_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    c.execute("INSERT INTO command_queue (imei, command, created_at, sent) VALUES (?, ?, ?, 0)",
-              (imei, command, created_at))
-    conn.commit()
-    conn.close()
-    logging.info(f"Queued command for IMEI {imei}: {command}")
+def build_codec12_packet(command):
+    command_bytes = command.encode('ascii')
+    command_length = len(command_bytes)
+    data_field = struct.pack('>BBBI', 0x0C, 0x01, 0x05, command_length) + command_bytes + struct.pack('>B', 0x01)
+    crc = crc16(data_field)
+    packet = struct.pack('>I', 0) + struct.pack('>I', len(data_field)) + data_field + struct.pack('>I', crc)
+    return packet
+
+def parse_codec12_response(data):
+    if len(data) < 14:
+        logging.error("Response too short")
+        return None
+    offset = 0
+    preamble = struct.unpack('>I', data[offset:offset+4])[0]
+    if preamble != 0:
+        logging.error(f"Invalid preamble: {preamble}")
+        return None
+    offset += 4
+    data_length = struct.unpack('>I', data[offset:offset+4])[0]
+    offset += 4
+    codec_id = data[offset]
+    if codec_id != 0x0C:
+        logging.error(f"Invalid codec ID: {codec_id}")
+        return None
+    offset += 1
+    quantity1 = data[offset]
+    offset += 1
+    response_type = data[offset]
+    if response_type != 0x06:
+        logging.error(f"Invalid response type: {response_type}")
+        return None
+    offset += 1
+    response_length = struct.unpack('>I', data[offset:offset+4])[0]
+    offset += 4
+    response = data[offset:offset+response_length].decode('ascii')
+    offset += response_length
+    quantity2 = data[offset]
+    if quantity1 != quantity2:
+        logging.error(f"Quantity mismatch: {quantity1} != {quantity2}")
+        return None
+    return response
 
 def send_command_with_response(conn, command, imei):
-    """Send command and wait for device response"""
     try:
-        conn.sendall(command.encode('ascii') + b'\r\n')
-        logging.info(f"Sent command to IMEI {imei}: {command}")
-        
-        # Set socket timeout for response
+        packet = build_codec12_packet(command)
+        conn.sendall(packet)
+        logging.info(f"Sent Codec 12 command to IMEI {imei}: {command}")
         conn.settimeout(RESPONSE_TIMEOUT)
-        response = conn.recv(1024).decode('ascii').strip()
-        
-        # Check if response indicates success (adjust based on your device's response format)
-        if 'OK' in response:
+        response_data = conn.recv(1024)
+        response = parse_codec12_response(response_data)
+        if response and 'OK' in response:
             logging.info(f"Command successful for IMEI {imei}: {response}")
             return True
         else:
@@ -156,7 +143,7 @@ def send_command_with_response(conn, command, imei):
         logging.error(f"Error sending command to IMEI {imei}: {e}")
         return False
     finally:
-        conn.settimeout(None)  # Reset timeout
+        conn.settimeout(None)
 
 def send_queued_commands(conn, imei):
     conn_db = sqlite3.connect(DB_NAME)
@@ -172,6 +159,20 @@ def send_queued_commands(conn, imei):
     conn_db.commit()
     conn_db.close()
 
+def parse_timestamp(data, offset, length=8):
+    try:
+        timestamp_ms = int.from_bytes(data[offset:offset+length], byteorder='big')
+        timestamp_s = timestamp_ms / 1000.0
+        # Validate timestamp (1970 to 2038)
+        if timestamp_s < 0 or timestamp_s > 2147483647:
+            logging.error(f"Invalid timestamp_ms: {timestamp_ms}, out of valid range")
+            return None
+        timestamp = datetime.fromtimestamp(timestamp_s)
+        return timestamp.strftime('%Y-%m-%d %H:%M:%S')
+    except Exception as e:
+        logging.error(f"Failed to parse timestamp: {e}, raw data: {data[offset:offset+length].hex()}")
+        return None
+
 def parse_avl_packet(data, imei, conn):
     offset = 0
     preamble = data[offset:offset+4]
@@ -179,27 +180,25 @@ def parse_avl_packet(data, imei, conn):
         logging.warning(f"Invalid preamble: {preamble.hex()}")
         return 0
     offset += 4
-
     data_length = struct.unpack('>I', data[offset:offset+4])[0]
     offset += 4
     codec_id = data[offset]
     offset += 1
-    
     if codec_id != 0x8E:
         logging.warning(f"Unsupported codec ID: {codec_id}")
         return 0
-
     number_of_data = struct.unpack('>H', data[offset:offset+2])[0]
     offset += 2
-
     logging.info(f"Parsing {number_of_data} records for IMEI: {imei}")
-
     for _ in range(number_of_data):
-        timestamp = struct.unpack('>Q', data[offset:offset+8])[0]
+        timestamp = parse_timestamp(data, offset)
         offset += 8
+        if not timestamp:
+          logging.error("Skipping record due to invalid timestamp")
+          continue
+       
         priority = struct.unpack('>B', data[offset:offset+1])[0]
         offset += 1
-
         longitude = struct.unpack('>i', data[offset:offset+4])[0] / 10000000.0
         offset += 4
         latitude = struct.unpack('>i', data[offset:offset+4])[0] / 10000000.0
@@ -212,17 +211,13 @@ def parse_avl_packet(data, imei, conn):
         offset += 1
         speed = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
-
         insert_gps_data(imei, timestamp, latitude, longitude, altitude, speed, angle, satellites, priority)
-
         event_io_id = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         total_io_count = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
-
         dout1_value = None
         timestamp_str = None
-
         io_count_1b = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         for _ in range(io_count_1b):
@@ -233,7 +228,6 @@ def parse_avl_packet(data, imei, conn):
             timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-
         io_count_2b = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         for _ in range(io_count_2b):
@@ -244,7 +238,6 @@ def parse_avl_packet(data, imei, conn):
             timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-
         io_count_4b = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         for _ in range(io_count_4b):
@@ -255,7 +248,6 @@ def parse_avl_packet(data, imei, conn):
             timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-
         io_count_8b = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         for _ in range(io_count_8b):
@@ -266,7 +258,6 @@ def parse_avl_packet(data, imei, conn):
             timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-
         io_count_xb = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         for _ in range(io_count_xb):
@@ -279,68 +270,29 @@ def parse_avl_packet(data, imei, conn):
             timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-
         if dout1_value is not None and timestamp_str:
             command = update_dout1_state(imei, dout1_value, timestamp_str, conn)
             if command:
-                queue_command(imei, command)  # Queue automatic commands
-
+                conn_db = sqlite3.connect(DB_NAME)
+                c = conn_db.cursor()
+                created_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                c.execute("INSERT INTO command_queue (imei, command, created_at, sent) VALUES (?, ?, ?, 0)",
+                          (imei, command, created_at))
+                conn_db.commit()
+                conn_db.close()
+                logging.info(f"Queued command for IMEI {imei}: {command}")
     number_of_data_end = struct.unpack('>H', data[offset:offset+2])[0]
     if number_of_data != number_of_data_end:
         logging.error(f"Number of data mismatch: Start={number_of_data}, End={number_of_data_end}")
-    
     return number_of_data
 
-# Flask API endpoints
-@app.route('/dout1_status/<imei>', methods=['GET'])
-def get_dout1_status(imei):
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute("SELECT dout1_active, deactivate_time FROM dout1_state WHERE imei = ?", (imei,))
-    row = c.fetchone()
-    conn.close()
-    if row:
-        dout1_active, deactivate_time = row
-        return jsonify({
-            'imei': imei,
-            'dout1_active': bool(dout1_active),
-            'deactivate_time': deactivate_time
-        })
-    return jsonify({'error': 'IMEI not found'}), 404
-
-@app.route('/dout1_control/<imei>', methods=['POST'])
-def control_dout1(imei):
-    data = request.json
-    activate = data.get('activate')
-    conn = sqlite3.connect(DB_NAME)
-    c = conn.cursor()
-    c.execute("SELECT dout1_active FROM dout1_state WHERE imei = ?", (imei,))
-    row = c.fetchone()
-    if row:
-        command = "setdigout 1" if activate else "setdigout 0"
-        queue_command(imei, command)
-        logging.info(f"Manual command queued for IMEI {imei}: {command}")
-        conn.close()
-        return jsonify({'command': command, 'status': 'queued'})
-    conn.close()
-    return jsonify({'error': 'IMEI not found'}), 404
-
-def run_flask():
-    app.run(host=HOST, port=FLASK_PORT, debug=False)
-
 def main():
-    create_db()
-    flask_thread = Thread(target=run_flask)
-    flask_thread.daemon = True
-    flask_thread.start()
-    
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((HOST, PORT))
-        s.listen()
-        logging.info(f"Server listening on {HOST}:{PORT}")
-        logging.info(f"Flask API running on {HOST}:{FLASK_PORT}")
-
-        while True:
+        try:
+            s.bind((HOST, PORT))
+            s.listen()
+            logging.info(f"TCP server started on {HOST}:{PORT}")
+            s.settimeout(540)  # Run for 540 seconds max
             conn, addr = s.accept()
             logging.info(f"Connected by {addr}")
             try:
@@ -348,10 +300,7 @@ def main():
                 imei = conn.recv(imei_length).decode('ascii').strip('\0')
                 logging.info(f"IMEI received: {imei}")
                 conn.sendall(b'\x01')
-
-                # Send any queued commands
-                #send_queued_commands(conn, imei)
-
+                send_queued_commands(conn, imei)
                 data = conn.recv(4096)
                 if data:
                     num_records = parse_avl_packet(data, imei, conn)
@@ -363,6 +312,10 @@ def main():
                 logging.error(f"Error handling client: {e}")
             finally:
                 conn.close()
+        except socket.timeout:
+            logging.info("TCP server timeout, exiting")
+        except Exception as e:
+            logging.error(f"TCP server error: {e}")
 
 if __name__ == "__main__":
     main()
