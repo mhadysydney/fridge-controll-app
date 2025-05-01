@@ -8,7 +8,7 @@ services:
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.7
+        value: 3.11.11
 
   - type: worker
     name: fmb-tcp-server
@@ -19,4 +19,4 @@ services:
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: 3.7
+        value: 3.11.11
