@@ -2,7 +2,7 @@ import socket
 import struct
 import logging
 import sqlite3
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta,timezone
 import crcmod
 
 # Configure logging
@@ -161,17 +161,33 @@ def send_queued_commands(conn, imei):
 
 def parse_timestamp(data, offset, length=8):
     try:
+        # Validate data length
+        if len(data[offset:offset+length]) != length:
+            logging.error(f"Insufficient data for timestamp at offset {offset}, length {length}, packet: {data.hex()}")
+            return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')  # Fallback to server GMT
+        # Convert bytes to integer
         timestamp_ms = int.from_bytes(data[offset:offset+length], byteorder='big')
+        # Validate type
+        if not isinstance(timestamp_ms, int):
+            logging.error(f"timestamp_ms is not an integer: {type(timestamp_ms)} {timestamp_ms}")
+            return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')  # Fallback to server GMT
+        # Convert to seconds
         timestamp_s = timestamp_ms / 1000.0
-        # Validate timestamp (1970 to 2038)
-        if timestamp_s < 0 or timestamp_s > 2147483647:
-            logging.error(f"Invalid timestamp_ms: {timestamp_ms}, out of valid range")
-            return None
+        # Validate range (1970 to 2038)
+        epoch_start = 0  # 1970-01-01
+        epoch_end = 2147483647  # 2038-01-19
+        if timestamp_s < epoch_start or timestamp_s > epoch_end:
+            logging.error(f"Invalid timestamp_ms: {timestamp_ms} (seconds: {timestamp_s}), out of range")
+            return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')  # Fallback to server GMT
+        # Convert to datetime
         timestamp = datetime.fromtimestamp(timestamp_s)
-        return timestamp.strftime('%Y-%m-%d %H:%M:%S')
+        formatted_timestamp = timestamp.strftime('%Y-%m-%d %H:%M:%S')
+        logging.debug(f"Parsed timestamp: {formatted_timestamp} from {timestamp_ms}ms")
+        return formatted_timestamp
     except Exception as e:
-        logging.error(f"Failed to parse timestamp: {e}, raw data: {data[offset:offset+length].hex()}")
-        return None
+        logging.error(f"Failed to parse timestamp at offset {offset}: {e}, raw data: {data[offset:offset+length].hex()}, full packet: {data.hex()}")
+        return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')  # Fallback to server GMT
+
 
 def parse_avl_packet(data, imei, conn):
     offset = 0
