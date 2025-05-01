@@ -1,2 +1,4 @@
 crcmod
 flask
+flask-cors
+gunicorn
