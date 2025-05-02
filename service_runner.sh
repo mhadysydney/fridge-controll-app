@@ -1,11 +1,11 @@
 #!/bin/bash
-FMB_DIR="/path/to/fmb-server-local"
+FMB_DIR="."
 LOG_FILE="$FMB_DIR/tcp_server.log"
 NGROK_LOG="$FMB_DIR/ngrok.log"
 PYTHON="/usr/bin/python3"
-NGROK="/usr/local/bin/ngrok"
+NGROK="/snap/bin/ngrok"
 
-$PYTHON $FMB_DIR/tcp_server.py >> $LOG_FILE 2>&1 &
+$PYTHON $FMB_DIR/grok_fmb_server_v6.py >> $LOG_FILE 2>&1 &
 TCP_PID=$!
 echo "Started tcp_server.py (PID: $TCP_PID)" >> $LOG_FILE
 

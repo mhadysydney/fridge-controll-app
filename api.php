@@ -91,7 +91,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/synci
             $stmt->bindValue(':priority', $priority, SQLITE3_INTEGER);
             $stmt->execute();
 
-            // Handle IO data if present
             if (isset($record['io_data'])) {
                 foreach ($record['io_data'] as $io) {
                     $stmt = $db->prepare('INSERT INTO io_data (imei, timestamp, io_id, io_value) VALUES (:imei, :timestamp, :io_id, :io_value)');
@@ -196,6 +195,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && preg_match('#^/power_status/(.+)$#',
     exit;
 }
 
+// GET /command_queue/<imei>
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && preg_match('#^/command_queue/(.+)$#', $_SERVER['REQUEST_URI'], $matches)) {
+    $imei = $matches[1];
+    try {
+        $stmt = $db->prepare('SELECT id, command FROM command_queue WHERE imei = :imei AND status = :status');
+        $stmt->bindValue(':imei', $imei, SQLITE3_TEXT);
+        $stmt->bindValue(':status', 'pending', SQLITE3_TEXT);
+        $result = $stmt->execute();
+        $commands = [];
+        while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
+            $commands[] = ['id' => $row['id'], 'command' => $row['command']];
+        }
+        logMessage("Retrieved " . count($commands) . " pending commands for IMEI $imei");
+        echo json_encode(['commands' => $commands]);
+    } catch (Exception $e) {
+        logMessage("Error retrieving command queue for IMEI $imei: " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(['error' => 'Server error']);
+    }
+    $db->close();
+    exit;
+}
+
+// POST /command_queue/update/<id>
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/command_queue/update/(\d+)$#', $_SERVER['REQUEST_URI'], $matches)) {
+    $command_id = $matches[1];
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (!$input || !isset($input['status'])) {
+        logMessage("Invalid input for command_queue/update/$command_id");
+        http_response_code(400);
+        echo json_encode(['error' => 'Invalid input']);
+        exit;
+    }
+
+    $status = $input['status'];
+    try {
+        $stmt = $db->prepare('UPDATE command_queue SET status = :status WHERE id = :id');
+        $stmt->bindValue(':status', $status, SQLITE3_TEXT);
+        $stmt->bindValue(':id', $command_id, SQLITE3_INTEGER);
+        $stmt->execute();
+        logMessage("Updated command $command_id to status '$status'");
+        echo json_encode(['status' => 'Updated']);
+    } catch (Exception $e) {
+        logMessage("Error updating command $command_id: " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(['error' => 'Server error']);
+    }
+    $db->close();
+    exit;
+}
+
 // POST /dout1_control/<imei>
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/dout1_control/(.+)$#', $_SERVER['REQUEST_URI'], $matches)) {
     $imei = $matches[1];
@@ -215,7 +265,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/dout1_control/(.+)$#
         $result = $stmt->execute();
         $row = $result->fetchArray(SQLITE3_ASSOC);
 
-        if ($row) {
+        if ($row || !$row) { // Allow initial state creation
             $command = $activate ? 'setdigout 1' : 'setdigout 0';
             $created_at = date('Y-m-d H:i:s');
             $deactivate_time = $activate ? date('Y-m-d H:i:s', strtotime('+1 hour')) : null;

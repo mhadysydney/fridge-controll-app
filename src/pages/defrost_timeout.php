@@ -1,7 +1,7 @@
 <?php
 $dbPath = '/home/yourusername/fmb_data.db';
 $logFile = '/home/yourusername/fmb_server.log';
-$imei = 'YOUR_IMEI'; // Replace with your FMB920 IMEI
+$imei = 'YOUR_IMEI';
 
 try {
     $db = new SQLite3($dbPath);
@@ -23,9 +23,9 @@ try {
             $stmt->bindValue(':created_at', $created_at, SQLITE3_TEXT);
             $stmt->execute();
 
-           /*  $stmt = $db->prepare('UPDATE dout1_state SET dout1_active = 0, deactivate_time = NULL WHERE imei = :imei');
+            $stmt = $db->prepare('UPDATE dout1_state SET dout1_active = 0, deactivate_time = NULL WHERE imei = :imei');
             $stmt->bindValue(':imei', $imei, SQLITE3_TEXT);
-            $stmt->execute(); */
+            $stmt->execute();
 
             file_put_contents($logFile, date('Y-m-d H:i:s') . ": Cron forced defrost off for IMEI $imei\n", FILE_APPEND);
         }

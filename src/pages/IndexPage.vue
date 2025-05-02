@@ -79,7 +79,7 @@ import axios from 'axios'
 export default {
   name: 'IndexPage',
   setup() {
-    const apiBaseUrl = 'http://iot.satgroupe.com' // Adjust to your cPanel subdomain or IP
+    const apiBaseUrl = 'https://iot.satgroupe.com' // Adjust to your cPanel subdomain or IP
     const imei = '350317177312182' // Replace with your FMB920 IMEI
     const fridgeStatus = ref(false)
     const powerStatus = ref(false)
