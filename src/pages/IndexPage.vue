@@ -1,50 +1,73 @@
 <template>
-  <q-page padding>
-    <div class="q-pa-md">
-      <h5>DOUT1 Control</h5>
-      <q-input
-        v-model="imei"
-        label="Enter IMEI"
-        filled
-        class="q-mb-md"
-        :rules="[(val) => !!val || 'IMEI is required']"
+  <q-page class="q-pa-md">
+    <!-- Header with Freezer Image -->
+    <div class="q-mb-lg text-center">
+      <img
+        src="https://images.unsplash.com/photo-1622138812814-5b30c037f127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        alt="American Freezer"
+        class="freezer-image"
       />
+      <h4 class="q-mt-md text-h5 text-weight-bold">Smart Fridge Control</h4>
+    </div>
+
+    <!-- Status Cards -->
+    <div class="q-gutter-md row justify-center">
+      <!-- Fridge Status -->
+      <q-card class="status-card col-5">
+        <q-card-section class="text-center">
+          <q-icon
+            :name="fridgeStatus ? 'ac_unit' : 'power_off'"
+            size="lg"
+            :color="fridgeStatus ? 'green' : 'grey'"
+          />
+          <div class="q-mt-sm text-subtitle1">Fridge {{ fridgeStatus ? 'On' : 'Off' }}</div>
+        </q-card-section>
+      </q-card>
+
+      <!-- Power Source -->
+      <q-card class="status-card col-5">
+        <q-card-section class="text-center">
+          <q-icon
+            :name="powerStatus ? 'plug_circle' : 'power_off'"
+            size="lg"
+            :color="powerStatus ? 'green' : 'red'"
+          />
+          <div class="q-mt-sm text-subtitle1">
+            {{ powerStatus ? 'Plugged In' : 'Unplugged' }}
+          </div>
+        </q-card-section>
+      </q-card>
+    </div>
+
+    <!-- Circular Progress for Defrost Countdown -->
+    <div class="q-mt-lg text-center">
+      <q-circular-progress
+        show-value
+        :value="progressValue"
+        size="150px"
+        :thickness="0.2"
+        color="primary"
+        track-color="grey-3"
+        class="q-ma-md"
+      >
+        <div class="text-body1">
+          {{ remainingTime }}
+        </div>
+      </q-circular-progress>
+      <div class="q-mt-sm text-subtitle1">
+        {{ fridgeStatus ? 'Time until Defrost Off' : 'Time until Defrost On' }}
+      </div>
+    </div>
+
+    <!-- Control Buttons -->
+    <div class="q-mt-lg text-center">
       <q-btn
-        :label="status ? 'Deactivate DOUT1' : 'Activate DOUT1'"
-        :color="status ? 'negative' : 'primary'"
+        :label="fridgeStatus ? 'Turn Off Defrost' : 'Turn On Defrost'"
+        :color="fridgeStatus ? 'negative' : 'primary'"
         :loading="loading"
-        :disable="!imei"
-        @click="toggleDout1"
-        class="q-mb-md full-width"
+        @click="toggleDefrost"
+        class="q-px-lg"
       />
-      <div v-if="error" class="text-negative q-mb-md">
-        {{ error }}
-      </div>
-      <div v-if="status !== null" class="q-mb-md">
-        <p>
-          DOUT1 Status: <strong>{{ status ? 'Active' : 'Inactive' }}</strong>
-        </p>
-        <div v-if="countdown > 0">
-          <q-circular-progress
-            show-value
-            font-size="14px"
-            :value="countdownProgress"
-            size="100px"
-            :thickness="0.2"
-            color="primary"
-            track-color="grey-3"
-            :min="0"
-            :max="countdownDuration"
-            class="q-ma-md"
-          >
-            {{ Math.ceil(countdown / 1000) }}s
-          </q-circular-progress>
-          <p>Time until deactivation: {{ Math.ceil(countdown / 1000) }} seconds</p>
-        </div>
-        <div v-else-if="status">
-          <p>No deactivation scheduled</p>
-        </div>
-      </div>
     </div>
   </q-page>
 </template>
@@ -56,126 +79,102 @@ import axios from 'axios'
 export default {
   name: 'IndexPage',
   setup() {
-    const apiBaseUrl = 'https://iot.satgroupe.com' // Replace with your cPanel domain
-    const imei = ref('350317177312182') // Replace with a default IMEI or keep as user input
-    const status = ref(null) // DOUT1 active status (true/false)
-    const deactivateTime = ref(null) // Deactivation timestamp
-    const countdown = ref(0) // Countdown in milliseconds
-    const countdownDuration = ref(0) // Total countdown duration in milliseconds
+    const apiBaseUrl = 'http://iot.satgroupe.com' // Adjust to your cPanel subdomain or IP
+    const imei = '350317177312182' // Replace with your FMB920 IMEI
+    const fridgeStatus = ref(false)
+    const powerStatus = ref(false)
+    const deactivateTime = ref(null)
     const loading = ref(false)
-    const error = ref(null)
-    let countdownInterval = null
 
-    // Compute countdown progress for Q-Circular-Progress
-    const countdownProgress = computed(() => {
-      return countdownDuration.value - countdown.value
-    })
-
-    // Fetch DOUT1 status
-    const fetchStatus = async () => {
-      if (!imei.value) return
-      loading.value = true
-      error.value = null
-      try {
-        const response = await axios.get(`${apiBaseUrl}/dout1_status/${imei.value}`)
-        status.value = response.data.dout1_active
-        console.log('status: ', status.value, '\ndeactivateTime.value: ', deactivateTime.value)
-
-        deactivateTime.value = response.data.deactivate_time
-        if (deactivateTime.value) {
-          startCountdown()
-        } else {
-          stopCountdown()
-          countdown.value = 0
-        }
-      } catch (err) {
-        error.value = err.response?.data?.error || 'Failed to fetch status'
-        status.value = null
-        stopCountdown()
-      } finally {
-        loading.value = false
-      }
-    }
-
-    // Toggle DOUT1 (activate/deactivate)
-    const toggleDout1 = async () => {
-      if (!imei.value) return
-      loading.value = true
-      error.value = null
-      try {
-        const response = await axios.post(`${apiBaseUrl}/dout1_control/${imei.value}`, {
-          activate: !status.value,
-        })
-        if (response.data.status === 'queued') {
-          await fetchStatus() // Refresh status after command
-        }
-      } catch (err) {
-        error.value = err.response?.data?.error || 'Failed to control DOUT1'
-      } finally {
-        loading.value = false
-      }
-    }
-
-    // Start countdown based on deactivate_time
-    const startCountdown = () => {
-      stopCountdown() // Clear existing interval
-      const deactivateDate = new Date(deactivateTime.value)
+    // Circular progress (0-100%)
+    const progressValue = computed(() => {
+      if (!deactivateTime.value) return 0
       const now = new Date()
-      countdownDuration.value = Math.max(0, deactivateDate - now)
-      countdown.value = countdownDuration.value
-
-      if (countdown.value > 0) {
-        countdownInterval = setInterval(() => {
-          countdown.value -= 1000
-          if (countdown.value <= 0) {
-            stopCountdown()
-            fetchStatus() // Refresh status when countdown ends
-          }
-        }, 1000)
-      }
-    }
-
-    // Stop countdown
-    const stopCountdown = () => {
-      if (countdownInterval) {
-        clearInterval(countdownInterval)
-        countdownInterval = null
-      }
-    }
-
-    // Fetch status on mount
-    onMounted(() => {
-      if (imei.value) {
-        fetchStatus()
-      }
+      const end = new Date(deactivateTime.value)
+      const total = 60 * 60 * 1000 // 1 hour in ms
+      const remaining = Math.max(0, end - now)
+      return (remaining / total) * 100
     })
 
-    // Clean up interval on unmount
+    // Format remaining time (MM:SS)
+    const remainingTime = computed(() => {
+      if (!deactivateTime.value) return 'N/A'
+      const now = new Date()
+      const end = new Date(deactivateTime.value)
+      const diff = Math.max(0, end - now) / 1000 // Seconds
+      const minutes = Math.floor(diff / 60)
+      const seconds = Math.floor(diff % 60)
+      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+    })
+
+    // Fetch status every 10 seconds
+    const fetchStatus = async () => {
+      try {
+        // Fetch fridge status
+        const response = await axios.get(`${apiBaseUrl}/dout1_status/${imei}`)
+        fridgeStatus.value = response.data.dout1_active
+        deactivateTime.value = response.data.deactivate_time
+
+        // Fetch power status (IO ID 66)
+        const powerResponse = await axios.get(`${apiBaseUrl}/power_status/${imei}`)
+        powerStatus.value = powerResponse.data.power_status
+      } catch (error) {
+        console.error('Error fetching status:', error)
+      }
+    }
+
+    // Toggle defrost
+    const toggleDefrost = async () => {
+      loading.value = true
+      try {
+        await axios.post(`${apiBaseUrl}/dout1_control/${imei}`, {
+          activate: !fridgeStatus.value,
+        })
+        await fetchStatus()
+      } catch (error) {
+        console.error('Error toggling defrost:', error)
+      } finally {
+        loading.value = false
+      }
+    }
+
+    // Poll every 10 seconds
+    let intervalId
+    onMounted(() => {
+      fetchStatus()
+      intervalId = setInterval(fetchStatus, 10000) // 10-second interval
+    })
+
     onUnmounted(() => {
-      stopCountdown()
+      clearInterval(intervalId)
     })
 
     return {
-      imei,
-      status,
-      countdown,
-      countdownDuration,
-      countdownProgress,
+      fridgeStatus,
+      powerStatus,
+      progressValue,
+      remainingTime,
       loading,
-      error,
-      toggleDout1,
+      toggleDefrost,
     }
   },
 }
 </script>
 
 <style scoped>
-.q-page {
-  display: flex;
-  justify-content: center;
+.freezer-image {
+  max-width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.q-pa-md {
-  max-width: 500px;
-  width: 100%;
+
+.status-card {
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.q-page {
+  background: linear-gradient(to bottom, #f0f4f8, #ffffff);
 }
 </style>

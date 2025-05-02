@@ -4,12 +4,14 @@ import logging
 import sqlite3
 from datetime import datetime, timedelta,timezone
 import crcmod
+import requests
 
 # Configure logging
 logging.basicConfig(filename='grok_tcp_server_v6.log', level=logging.INFO,
                     format='%(asctime)s:%(levelname)s:%(message)s')
 
 # Server configuration
+version="6.5"
 HOST = '127.0.0.1'  # Localhost for cron
 PORT = 12345
 DB_NAME = 'grok_fmb_data_v6.db'
@@ -206,6 +208,7 @@ def parse_avl_packet(data, imei, conn):
     number_of_data = struct.unpack('>H', data[offset:offset+2])[0]
     offset += 2
     logging.info(f"Parsing {number_of_data} records for IMEI: {imei}")
+    records =[]
     for _ in range(number_of_data):
         timestamp = parse_timestamp(data, offset)
         offset += 8
@@ -227,7 +230,18 @@ def parse_avl_packet(data, imei, conn):
         offset += 1
         speed = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
-        insert_gps_data(imei, timestamp, latitude, longitude, altitude, speed, angle, satellites, priority)
+        record = {
+                'timestamp': timestamp,
+                'latitude': latitude,
+                'longitude': longitude,
+                'altitude': altitude,
+                'speed': speed,
+                'angle': angle,
+                'satellites': satellites,
+                'priority': priority,
+                'io_data': []
+            }
+        #insert_gps_data(imei, timestamp, latitude, longitude, altitude, speed, angle, satellites, priority)
         event_io_id = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
         total_io_count = struct.unpack('>H', data[offset:offset+2])[0]
@@ -241,7 +255,8 @@ def parse_avl_packet(data, imei, conn):
             offset += 2
             io_value = struct.unpack('>B', data[offset:offset+1])[0]
             offset += 1
-            timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            #timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            record['io_data'].append({'io_id': io_id, 'io_value': io_value})
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
         io_count_2b = struct.unpack('>H', data[offset:offset+2])[0]
@@ -251,7 +266,8 @@ def parse_avl_packet(data, imei, conn):
             offset += 2
             io_value = struct.unpack('>H', data[offset:offset+2])[0]
             offset += 2
-            timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            record['io_data'].append({'io_id': io_id, 'io_value': io_value})
+            #timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
         io_count_4b = struct.unpack('>H', data[offset:offset+2])[0]
@@ -261,7 +277,8 @@ def parse_avl_packet(data, imei, conn):
             offset += 2
             io_value = struct.unpack('>I', data[offset:offset+4])[0]
             offset += 4
-            timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            record['io_data'].append({'io_id': io_id, 'io_value': io_value})
+            #timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
         io_count_8b = struct.unpack('>H', data[offset:offset+2])[0]
@@ -271,7 +288,8 @@ def parse_avl_packet(data, imei, conn):
             offset += 2
             io_value = struct.unpack('>Q', data[offset:offset+8])[0]
             offset += 8
-            timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            record['io_data'].append({'io_id': io_id, 'io_value': io_value})
+            #timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
         io_count_xb = struct.unpack('>H', data[offset:offset+2])[0]
@@ -283,10 +301,12 @@ def parse_avl_packet(data, imei, conn):
             offset += 2
             io_value = int.from_bytes(data[offset:offset+io_length], byteorder='big')
             offset += io_length
-            timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
+            record['io_data'].append({'io_id': io_id, 'io_value': io_value})
+            #timestamp_str = insert_io_data(imei, timestamp, io_id, io_value)
             if io_id == DOUT1_IO_ID:
                 dout1_value = io_value
-        if dout1_value is not None and timestamp_str:
+        records.append(record)
+        """ if dout1_value is not None and timestamp_str:
             command = update_dout1_state(imei, dout1_value, timestamp_str, conn)
             if command:
                 conn_db = sqlite3.connect(DB_NAME)
@@ -296,8 +316,17 @@ def parse_avl_packet(data, imei, conn):
                           (imei, command, created_at))
                 conn_db.commit()
                 conn_db.close()
-                logging.info(f"Queued command for IMEI {imei}: {command}")
+                logging.info(f"Queued command for IMEI {imei}: {command}") """
+    payload = {'imei': imei, 'records': records}
+    try:
+            response = requests.post("http://iot.satgroupe.com/syncing_data", json=payload, timeout=10)
+            response.raise_for_status()
+            logging.info(f"Sent data to API for IMEI {imei}: {response.json()}")
+    except requests.RequestException as e:
+            logging.error(f"Failed to send data to API for IMEI {imei}: {e}")
+
     number_of_data_end = struct.unpack('>H', data[offset:offset+2])[0]
+    
     if number_of_data != number_of_data_end:
         logging.error(f"Number of data mismatch: Start={number_of_data}, End={number_of_data_end}")
     return number_of_data
