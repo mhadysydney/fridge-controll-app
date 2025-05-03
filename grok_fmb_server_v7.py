@@ -9,7 +9,7 @@ import time
 import crcmod
 
 LOG_FILE = 'tcp_server.log'
-API_URL = 'http://iot.satgroupe.com/'  # Adjust to your cPanel subdomain or IP
+API_URL = 'https://iot.satgroupe.com'  # Adjust to your cPanel subdomain or IP
 COMMAND_QUEUE_URL = f'{API_URL}/command_queue'
 SYNC_DATA_URL = f'{API_URL}/syncing_data'
 
@@ -36,6 +36,14 @@ def calculate_crc(data):
 def verify_crc(data, expected_crc):
     calculated_crc = calculate_crc(data[:-2])
     return calculated_crc == expected_crc
+
+def build_codec12_packet(command):
+    command_bytes = command.encode('ascii')
+    command_length = len(command_bytes)
+    data_field = struct.pack('>BBBI', 0x0C, 0x01, 0x05, command_length) + command_bytes + struct.pack('>B', 0x01)
+    crc = crc16(data_field)
+    packet = struct.pack('>I', 0) + struct.pack('>I', len(data_field)) + data_field + struct.pack('>I', crc)
+    return packet
 
 def parse_timestamp(data, offset, length=8):
     try:
@@ -88,35 +96,28 @@ def parse_codec12_response(data):
         logging.error(f"Failed to parse Codec 12 response: {e}, packet: {data.hex()}")
         return None
 
-def send_command_with_response(client_socket, command, imei):
+def send_command_with_response(conn, command, imei):
     try:
-        command_bytes = command.encode('ascii')
-        command_length = len(command_bytes)
-        packet = bytearray()
-        packet.extend(struct.pack('>I', command_length + 3))  # Length
-        packet.append(0x0C)  # Codec ID 12
-        packet.extend(command_bytes)  # Command
-        packet.append(1)  # Number of data
-        crc = calculate_crc(packet[4:])
-        packet.extend(struct.pack('>H', crc))  # CRC-16
-
-        logging.info(f"Sending command to IMEI {imei}: {command}")
-        client_socket.send(packet)
-
-        response_data = client_socket.recv(1024)
-        if not response_data:
-            logging.error(f"No response received for command '{command}' from IMEI {imei}")
-            return None
-
-        logging.debug(f"Received response for command '{command}': {response_data.hex()}")
+        packet = build_codec12_packet(command)
+        conn.sendall(packet)
+        logging.info(f"Sent Codec 12 command to IMEI {imei}: {command}")
+        conn.settimeout(5)
+        response_data = conn.recv(1024)
         response = parse_codec12_response(response_data)
-        if response:
-            logging.info(f"Command '{command}' response for IMEI {imei}: {response}")
-            return response
-        return None
+        if response and 'OK' in response:
+            logging.info(f"Command successful for IMEI {imei}: {response}")
+            return True
+        else:
+            logging.error(f"Command failed for IMEI {imei}: {response}")
+            return False
+    except socket.timeout:
+        logging.error(f"Timeout waiting for response from IMEI {imei} for command: {command}")
+        return False
     except Exception as e:
-        logging.error(f"Error sending command '{command}' to IMEI {imei}: {e}")
-        return None
+        logging.error(f"Error sending command to IMEI {imei}: {e}")
+        return False
+    finally:
+        conn.settimeout(None)
 
 def send_queued_commands(client_socket, imei):
     try:
@@ -146,21 +147,29 @@ def handle_client(client_socket, address):
         if not data:
             logging.info(f"No data received from {address}")
             return
-
         logging.debug(f"Received data from {address}: {data.hex()}")
 
+        imei_length = int.from_bytes(data[0:2], byteorder='big')
+        imei = data[2:2+imei_length].decode('ascii', errors='ignore')
+        
+        logging.info(f"Received IMEI packet: {imei} from {address}")
+        client_socket.sendall(b'\x01')  # Acknowledge IMEI
+        logging.debug(f"Sent IMEI acknowledgment to {address}")
+            
+        data = client_socket.recv(4096)
+        # Handle Codec 8E packet
         offset = 0
-        if len(data) < 12:
-            logging.error(f"Data too short: {len(data)} bytes, packet: {data.hex()}")
-            return
+        if not data:
+            logging.error(f"Inavalid data recieved after IMEI: {len(data)} bytes, packet: {data.hex()}")
+            return 
 
         data_length = int.from_bytes(data[0:4], byteorder='big')
         offset = 4
-        crc = int.from_bytes(data[-2:], byteorder='big')
-        if not verify_crc(data[4:-2], crc):
+        """crc = int.from_bytes(data[-2:], byteorder='big')
+         if not verify_crc(data[4:-2], crc):
             logging.error(f"CRC check failed, packet: {data.hex()}")
             return
-
+ """
         imei_length = int.from_bytes(data[offset:offset+2], byteorder='big')
         offset += 2
         imei = data[offset:offset+imei_length].decode('ascii', errors='ignore')
@@ -270,7 +279,7 @@ def handle_client(client_socket, address):
 
         # Send acknowledgment
         ack = struct.pack('>I', number_of_data)
-        client_socket.send(ack)
+        client_socket.sendall(ack)
         logging.info(f"Sent acknowledgment for {number_of_data} records to {address}")
 
     except Exception as e:
@@ -282,9 +291,9 @@ def main():
     try:
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        server.bind(('0.0.0.0', 12345))
+        server.bind(('0.0.0.0', 50120))
         server.listen(5)
-        logging.info("TCP server started on port 12345")
+        logging.info("TCP server started on port 50120")
         while True:
             client_socket, address = server.accept()
             logging.info(f"Accepted connection from {address}")
