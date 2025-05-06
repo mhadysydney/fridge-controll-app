@@ -152,7 +152,7 @@ def handle_client(client_socket, address):
         imei_length = int.from_bytes(data[0:2], byteorder='big')
         imei = data[2:2+imei_length].decode('ascii', errors='ignore')
         
-        logging.info(f"Received IMEI packet: {imei} from {address}")
+        logging.info(f"Received IMEI packet: {imei}. imei_length {imei_length} from {address}")
         client_socket.sendall(b'\x01')  # Acknowledge IMEI
         logging.debug(f"Sent IMEI acknowledgment to {address}")
             
@@ -170,9 +170,9 @@ def handle_client(client_socket, address):
             logging.error(f"CRC check failed, packet: {data.hex()}")
             return
  """
-        imei_length = int.from_bytes(data[offset:offset+2], byteorder='big')
+        #imei_length = int.from_bytes(data[offset:offset+2], byteorder='big')
         offset += 2
-        imei = data[offset:offset+imei_length].decode('ascii', errors='ignore')
+        #imei = data[offset:offset+imei_length].decode('ascii', errors='ignore')
         offset += imei_length
 
         codec_id = data[offset]
