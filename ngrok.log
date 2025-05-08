@@ -1683,3 +1683,281 @@ t=2025-05-05T23:21:30+0000 lvl=info msg="Got quit command" obj=consoleui
 t=2025-05-05T23:21:30+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
 t=2025-05-05T23:21:30+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
 t=2025-05-05T23:21:30+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=a11c5a1eac5c err="reconnecting session closed"
+t=2025-05-08T18:47:43+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T18:47:43+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T18:47:43+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T18:47:43+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-08T18:47:44+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-08T18:47:44+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-08T18:47:44+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://0.tcp.eu.ngrok.io:13625
+t=2025-05-08T18:47:48+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-08T18:53:10+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-08T18:53:10+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-08T18:53:10+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-08T18:53:10+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=bfdfcfa2320a err="reconnecting session closed"
+t=2025-05-08T20:38:21+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T20:38:21+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T20:38:21+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T20:38:21+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-08T20:38:25+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-08T20:38:25+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-08T20:38:25+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://4.tcp.eu.ngrok.io:11660
+t=2025-05-08T20:46:13+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T20:46:13+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T20:46:13+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T20:46:13+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2025-05-08T20:46:13+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041 allow_hosts=[]
+t=2025-05-08T20:46:14+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:46:14+0000 lvl=eror msg="session closing" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:46:14+0000 lvl=info msg="received stop request" obj=app stopReq="{err:{Remote:true Inner:{Inner:0xc000790680}} restart:false}"
+t=2025-05-08T20:46:14+0000 lvl=eror msg="terminating with error" obj=app err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:46:14+0000 lvl=crit msg="command failed" err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:46:14+0000 lvl=info msg="no more state changes" obj=tunnels.session
+t=2025-05-08T20:46:58+0000 lvl=info msg="join connections" obj=join id=3ca8723f73fe l=127.0.0.1:50122 r=195.10.99.100:60164
+t=2025-05-08T20:47:05+0000 lvl=warn msg="failed to open private leg" id=bcdb80de88cc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:07+0000 lvl=warn msg="failed to open private leg" id=409fea7eadee typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:09+0000 lvl=warn msg="failed to open private leg" id=28b8c12043ed typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:11+0000 lvl=warn msg="failed to open private leg" id=a8e3fb8575de typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:13+0000 lvl=warn msg="failed to open private leg" id=9bdec98f5cd5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:15+0000 lvl=warn msg="failed to open private leg" id=4686dbe614e4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:18+0000 lvl=warn msg="failed to open private leg" id=6e767f2ea743 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:19+0000 lvl=warn msg="failed to open private leg" id=e54bdcc079cb typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:21+0000 lvl=warn msg="failed to open private leg" id=d2818e013d91 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:23+0000 lvl=warn msg="failed to open private leg" id=03457b0fadbc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:23+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T20:47:23+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T20:47:23+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T20:47:23+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2025-05-08T20:47:23+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041 allow_hosts=[]
+t=2025-05-08T20:47:24+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:47:24+0000 lvl=eror msg="session closing" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:47:24+0000 lvl=info msg="received stop request" obj=app stopReq="{err:{Remote:true Inner:{Inner:0xc000475130}} restart:false}"
+t=2025-05-08T20:47:24+0000 lvl=eror msg="terminating with error" obj=app err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:47:24+0000 lvl=crit msg="command failed" err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:47:24+0000 lvl=info msg="no more state changes" obj=tunnels.session
+t=2025-05-08T20:47:24+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context canceled"
+t=2025-05-08T20:47:25+0000 lvl=info msg="join connections" obj=join id=fd9dc2ad0335 l=127.0.0.1:50122 r=195.10.99.100:4530
+t=2025-05-08T20:47:29+0000 lvl=warn msg="failed to open private leg" id=3dd9d570d939 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:47:35+0000 lvl=warn msg="failed to open private leg" id=60d8ac801dba typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:12+0000 lvl=warn msg="failed to open private leg" id=4c6a5ead7422 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:14+0000 lvl=warn msg="failed to open private leg" id=baf205288b13 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:16+0000 lvl=warn msg="failed to open private leg" id=3ad0ffbfd4ff typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:19+0000 lvl=warn msg="failed to open private leg" id=fefd3b67a5ad typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:21+0000 lvl=warn msg="failed to open private leg" id=103d82cfe385 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:23+0000 lvl=warn msg="failed to open private leg" id=50033881f865 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:25+0000 lvl=warn msg="failed to open private leg" id=a48aa8ed19f8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:27+0000 lvl=warn msg="failed to open private leg" id=289078b1050c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:29+0000 lvl=warn msg="failed to open private leg" id=db9ea01654c4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:31+0000 lvl=warn msg="failed to open private leg" id=227abad1e5ac typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:33+0000 lvl=warn msg="failed to open private leg" id=81820409b0d6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:35+0000 lvl=warn msg="failed to open private leg" id=2d1c2c5c0ba8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:37+0000 lvl=warn msg="failed to open private leg" id=8fb12355e5f2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:48:38+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T20:48:38+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T20:48:38+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T20:48:38+0000 lvl=warn msg="can't bind default web address, trying alternatives" obj=web addr=127.0.0.1:4040
+t=2025-05-08T20:48:38+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4041 allow_hosts=[]
+t=2025-05-08T20:48:39+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:48:39+0000 lvl=eror msg="session closing" obj=tunnels.session err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:48:39+0000 lvl=info msg="received stop request" obj=app stopReq="{err:{Remote:true Inner:{Inner:0xc0005d63c0}} restart:false}"
+t=2025-05-08T20:48:39+0000 lvl=eror msg="terminating with error" obj=app err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:48:39+0000 lvl=crit msg="command failed" err="authentication failed: Your account is limited to 1 simultaneous ngrok agent sessions.\nYou can run multiple simultaneous tunnels from a single agent session by defining the tunnels in your agent configuration file and starting them with the command `ngrok start --all`.\nRead more about the agent configuration file: https://ngrok.com/docs/secure-tunnels/ngrok-agent/reference/config\nYou can view your current agent sessions in the dashboard:\nhttps://dashboard.ngrok.com/agents\r\n\r\nERR_NGROK_108\r\n"
+t=2025-05-08T20:48:39+0000 lvl=info msg="no more state changes" obj=tunnels.session
+t=2025-05-08T20:48:39+0000 lvl=info msg="join connections" obj=join id=8ba7d14c9272 l=127.0.0.1:50122 r=195.10.99.100:9137
+t=2025-05-08T20:48:44+0000 lvl=warn msg="failed to open private leg" id=40a3b04cc84a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:02+0000 lvl=warn msg="failed to open private leg" id=caf679b6432b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:04+0000 lvl=warn msg="failed to open private leg" id=95eeb8eff830 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:07+0000 lvl=warn msg="failed to open private leg" id=3e12353f4e4c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:09+0000 lvl=warn msg="failed to open private leg" id=31aa14acedb6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:11+0000 lvl=warn msg="failed to open private leg" id=b8feab03e428 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:14+0000 lvl=warn msg="failed to open private leg" id=27e0b4f4c8f7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:15+0000 lvl=warn msg="failed to open private leg" id=f4129a6ab334 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:18+0000 lvl=warn msg="failed to open private leg" id=73a004eb7fef typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:20+0000 lvl=warn msg="failed to open private leg" id=29dbaac14eea typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:23+0000 lvl=warn msg="failed to open private leg" id=b690dc8436b9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:24+0000 lvl=warn msg="failed to open private leg" id=bb69ad4e726b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:26+0000 lvl=warn msg="failed to open private leg" id=765957049c2b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:28+0000 lvl=warn msg="failed to open private leg" id=692d8a2f6446 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:30+0000 lvl=warn msg="failed to open private leg" id=80ab81b0603d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:32+0000 lvl=warn msg="failed to open private leg" id=392d1c9f2809 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:34+0000 lvl=warn msg="failed to open private leg" id=fad42034ee71 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:36+0000 lvl=warn msg="failed to open private leg" id=176e42b629e7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:38+0000 lvl=warn msg="failed to open private leg" id=68d9f5fb68ee typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:40+0000 lvl=warn msg="failed to open private leg" id=6265528860d3 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:42+0000 lvl=warn msg="failed to open private leg" id=a04595f80a55 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:45+0000 lvl=warn msg="failed to open private leg" id=5ad8968c24f2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:46+0000 lvl=warn msg="failed to open private leg" id=e28463a2cede typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:48+0000 lvl=warn msg="failed to open private leg" id=3480596e38d4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:50+0000 lvl=warn msg="failed to open private leg" id=8393f958c597 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:52+0000 lvl=warn msg="failed to open private leg" id=9b11729570fa typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:54+0000 lvl=warn msg="failed to open private leg" id=038c0d40d607 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:56+0000 lvl=warn msg="failed to open private leg" id=3c2c4679ee37 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:49:58+0000 lvl=warn msg="failed to open private leg" id=883301e801cd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:00+0000 lvl=warn msg="failed to open private leg" id=a9f6ff17a622 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:04+0000 lvl=warn msg="failed to open private leg" id=7a73593c945e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:05+0000 lvl=warn msg="failed to open private leg" id=a488ac03761d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:07+0000 lvl=warn msg="failed to open private leg" id=fcab90c3e6fe typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:09+0000 lvl=warn msg="failed to open private leg" id=199711992295 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:12+0000 lvl=warn msg="failed to open private leg" id=4eb0283056a7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:13+0000 lvl=warn msg="failed to open private leg" id=dd41cc23e287 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:16+0000 lvl=warn msg="failed to open private leg" id=c5dd924fff52 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:18+0000 lvl=warn msg="failed to open private leg" id=c41deaa63592 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:20+0000 lvl=warn msg="failed to open private leg" id=7aa522c81363 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:22+0000 lvl=warn msg="failed to open private leg" id=d1026462f71a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:24+0000 lvl=warn msg="failed to open private leg" id=4b48bd96053f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:26+0000 lvl=warn msg="failed to open private leg" id=3a987dd4b1b6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:28+0000 lvl=warn msg="failed to open private leg" id=0e82d61048ab typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:31+0000 lvl=warn msg="failed to open private leg" id=e5706e7b218f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:32+0000 lvl=warn msg="failed to open private leg" id=abaebbae6050 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:33+0000 lvl=warn msg="failed to open private leg" id=69a0e95dd8c4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:36+0000 lvl=warn msg="failed to open private leg" id=eb93acfcd296 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:37+0000 lvl=warn msg="failed to open private leg" id=5672581dbd76 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:39+0000 lvl=warn msg="failed to open private leg" id=2e50ae689113 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:41+0000 lvl=warn msg="failed to open private leg" id=5e14ece27302 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:44+0000 lvl=warn msg="failed to open private leg" id=3dd0354bb92c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:45+0000 lvl=warn msg="failed to open private leg" id=9281ffe00e6e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:46+0000 lvl=warn msg="failed to open private leg" id=0a2cf9ad5630 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:49+0000 lvl=warn msg="failed to open private leg" id=77b47783c928 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:50+0000 lvl=warn msg="failed to open private leg" id=972744c93031 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:53+0000 lvl=warn msg="failed to open private leg" id=94fffb394f8c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:54+0000 lvl=warn msg="failed to open private leg" id=98e7bda1b1dd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:57+0000 lvl=warn msg="failed to open private leg" id=2ea435ee1f16 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:50:58+0000 lvl=warn msg="failed to open private leg" id=237e91886a66 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:00+0000 lvl=warn msg="failed to open private leg" id=4df96ede3fb8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:03+0000 lvl=warn msg="failed to open private leg" id=c2694d040182 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:04+0000 lvl=warn msg="failed to open private leg" id=fb03ef2e8eaa typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:07+0000 lvl=warn msg="failed to open private leg" id=b2f2611f27e2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:08+0000 lvl=warn msg="failed to open private leg" id=64e6ea2d2fbb typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:10+0000 lvl=warn msg="failed to open private leg" id=f9fb66fa8043 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:12+0000 lvl=warn msg="failed to open private leg" id=3d3f8ad08a65 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:15+0000 lvl=warn msg="failed to open private leg" id=b2077869569b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:19+0000 lvl=warn msg="failed to open private leg" id=fb9b4debd685 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:20+0000 lvl=warn msg="failed to open private leg" id=8659eeacfd41 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:23+0000 lvl=warn msg="failed to open private leg" id=bbd26f446064 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:25+0000 lvl=warn msg="failed to open private leg" id=7ab4a3e258f6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:27+0000 lvl=warn msg="failed to open private leg" id=412e53ae7e89 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:29+0000 lvl=warn msg="failed to open private leg" id=2bf912ba5a59 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:31+0000 lvl=warn msg="failed to open private leg" id=22a02aafbc41 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:33+0000 lvl=warn msg="failed to open private leg" id=2c0b9791c4ce typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:36+0000 lvl=warn msg="failed to open private leg" id=172f0c2a47c7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:38+0000 lvl=warn msg="failed to open private leg" id=97e29abf48be typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:40+0000 lvl=warn msg="failed to open private leg" id=072472dc9696 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:43+0000 lvl=warn msg="failed to open private leg" id=65b4cd0a3eb6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:45+0000 lvl=warn msg="failed to open private leg" id=396bad49c694 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:46+0000 lvl=warn msg="failed to open private leg" id=3144ba5ff3c5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:48+0000 lvl=warn msg="failed to open private leg" id=ee5818102a45 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:50+0000 lvl=warn msg="failed to open private leg" id=bd2065ae9a18 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:53+0000 lvl=warn msg="failed to open private leg" id=96abf1725262 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:55+0000 lvl=warn msg="failed to open private leg" id=8cebdae0bf7e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:57+0000 lvl=warn msg="failed to open private leg" id=3ee1802fc7c0 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:51:58+0000 lvl=warn msg="failed to open private leg" id=9acaa13ace5c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:00+0000 lvl=warn msg="failed to open private leg" id=874bb0b2fba4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:02+0000 lvl=warn msg="failed to open private leg" id=dfd42a07b230 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:05+0000 lvl=warn msg="failed to open private leg" id=b1cacb6d4b0f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:07+0000 lvl=warn msg="failed to open private leg" id=c1c87dc32d6b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:09+0000 lvl=warn msg="failed to open private leg" id=3648c7334255 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:11+0000 lvl=warn msg="failed to open private leg" id=d5f45bc682a5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:12+0000 lvl=warn msg="failed to open private leg" id=5bd68bf6b58d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:15+0000 lvl=warn msg="failed to open private leg" id=3e67491ffc60 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:16+0000 lvl=warn msg="failed to open private leg" id=295b8053417c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:18+0000 lvl=warn msg="failed to open private leg" id=8e117867b82f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:22+0000 lvl=warn msg="failed to open private leg" id=a91cf1542dfc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:24+0000 lvl=warn msg="failed to open private leg" id=9e08e53caddd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:25+0000 lvl=warn msg="failed to open private leg" id=7da78cca1a71 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:27+0000 lvl=warn msg="failed to open private leg" id=0b8718317e50 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:30+0000 lvl=warn msg="failed to open private leg" id=3abb00aaed68 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:33+0000 lvl=warn msg="failed to open private leg" id=4d4db2c9336c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:34+0000 lvl=warn msg="failed to open private leg" id=6ab21f80d680 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:37+0000 lvl=warn msg="failed to open private leg" id=41c739aed267 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:38+0000 lvl=warn msg="failed to open private leg" id=418364d13874 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:41+0000 lvl=warn msg="failed to open private leg" id=51ae24a65ddb typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:43+0000 lvl=warn msg="failed to open private leg" id=b724f5e9e8c5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:45+0000 lvl=warn msg="failed to open private leg" id=b9b0cc03ec1e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:47+0000 lvl=warn msg="failed to open private leg" id=edb8a55adbd6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:49+0000 lvl=warn msg="failed to open private leg" id=f884d3ffbbef typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:51+0000 lvl=warn msg="failed to open private leg" id=c209713a77c6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:53+0000 lvl=warn msg="failed to open private leg" id=d5b61efa7f4d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:55+0000 lvl=warn msg="failed to open private leg" id=e3ce164e6732 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:57+0000 lvl=warn msg="failed to open private leg" id=d55701665de2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:52:59+0000 lvl=warn msg="failed to open private leg" id=1f24e882231b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:01+0000 lvl=warn msg="failed to open private leg" id=acf3a18bf434 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:03+0000 lvl=warn msg="failed to open private leg" id=7ac86e3b8a90 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:05+0000 lvl=warn msg="failed to open private leg" id=781f610b21cc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:08+0000 lvl=warn msg="failed to open private leg" id=c26f91119124 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:10+0000 lvl=warn msg="failed to open private leg" id=0dbe05669112 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:12+0000 lvl=warn msg="failed to open private leg" id=63fa44b6fe18 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:14+0000 lvl=warn msg="failed to open private leg" id=93defcf6c618 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:16+0000 lvl=warn msg="failed to open private leg" id=cf88545b1a93 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:18+0000 lvl=warn msg="failed to open private leg" id=29f273282171 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:20+0000 lvl=warn msg="failed to open private leg" id=4ad017887248 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:22+0000 lvl=warn msg="failed to open private leg" id=6800b7abb9ff typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:25+0000 lvl=warn msg="failed to open private leg" id=b7fbd1544ea4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:27+0000 lvl=warn msg="failed to open private leg" id=dd2a315a99cf typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:29+0000 lvl=warn msg="failed to open private leg" id=f42f90f31f3f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:31+0000 lvl=warn msg="failed to open private leg" id=5c9397376a3b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:33+0000 lvl=warn msg="failed to open private leg" id=577950440479 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:35+0000 lvl=warn msg="failed to open private leg" id=2106b9f1a5df typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:37+0000 lvl=warn msg="failed to open private leg" id=5359c140b2b6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:39+0000 lvl=warn msg="failed to open private leg" id=aa039ee3afa5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:41+0000 lvl=warn msg="failed to open private leg" id=eb7511403875 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:43+0000 lvl=warn msg="failed to open private leg" id=1087842be731 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:45+0000 lvl=warn msg="failed to open private leg" id=9794de39083d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:47+0000 lvl=warn msg="failed to open private leg" id=31e3291634a7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T20:53:47+0000 lvl=info msg="received remote stop" obj=tunnels.session
+t=2025-05-08T20:53:47+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=6236b59300ac err="reconnecting session closed"
+t=2025-05-08T20:53:47+0000 lvl=info msg="no more state changes" obj=tunnels.session
+t=2025-05-08T20:53:47+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-08T20:53:47+0000 lvl=info msg="failed to accept connection: Listener closed" obj=tunnels.session clientid=4de08eed9f53135808b789443d6768d9
+t=2025-05-08T20:53:47+0000 lvl=warn msg="Stopping forwarder" name=command_line acceptErr="failed to accept connection: Listener closed"
+t=2025-05-08T20:53:47+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-08T21:26:25+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T21:26:25+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T21:26:25+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T21:26:25+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-08T21:26:26+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-08T21:26:26+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-08T21:26:26+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:18862
+t=2025-05-08T21:33:11+0000 lvl=eror msg="heartbeat timeout, terminating session" obj=tunnels.session obj=csess id=101cfad95bdd clientid=0320b134c6936e693f353f3bb7f757b5
+t=2025-05-08T21:33:11+0000 lvl=eror msg="session closed, starting reconnect loop" obj=tunnels.session obj=csess id=4a4481fd3f9c err="session closed"
+t=2025-05-08T21:33:21+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.125.234.140:443: i/o timeout"
+t=2025-05-08T21:33:32+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.125.234.140:443: i/o timeout"
+t=2025-05-08T21:33:43+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.125.234.140:443: i/o timeout"
+t=2025-05-08T21:33:55+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.125.234.140:443: i/o timeout"
+t=2025-05-08T21:34:09+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp 3.125.234.140:443: i/o timeout"
+t=2025-05-08T21:34:18+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-08T21:34:18+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-08T21:43:31+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-08T21:43:31+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-08T21:43:31+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-08T21:43:31+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=4a4481fd3f9c err="reconnecting session closed"
+t=2025-05-08T22:15:32+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-08T22:15:32+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-08T22:15:32+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-08T22:15:32+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-08T22:15:37+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-08T22:15:43+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-08T22:15:43+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-08T22:15:46+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:10627
+t=2025-05-08T22:18:39+0000 lvl=info msg="join connections" obj=join id=281dddeae8d7 l=127.0.0.1:50122 r=195.10.99.100:24066
+t=2025-05-08T22:18:43+0000 lvl=warn msg="failed to open private leg" id=30b2ddb23a12 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:18:45+0000 lvl=warn msg="failed to open private leg" id=246a7ec8a96f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:18:47+0000 lvl=warn msg="failed to open private leg" id=df3a35167b3f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:18:50+0000 lvl=warn msg="failed to open private leg" id=0bd4490d5813 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:18:53+0000 lvl=info msg="join connections" obj=join id=3a79ade341cb l=127.0.0.1:50122 r=195.10.99.100:3873
+t=2025-05-08T22:19:08+0000 lvl=warn msg="failed to open private leg" id=d28277d9e27a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:11+0000 lvl=warn msg="failed to open private leg" id=95013df9492e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:25+0000 lvl=warn msg="failed to open private leg" id=a236301abd35 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:27+0000 lvl=warn msg="failed to open private leg" id=b7ea18d84781 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:30+0000 lvl=warn msg="failed to open private leg" id=417d94078b51 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:31+0000 lvl=warn msg="failed to open private leg" id=a754fecad01e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:34+0000 lvl=warn msg="failed to open private leg" id=bf37e364fd7f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:37+0000 lvl=warn msg="failed to open private leg" id=f7f0600db8dc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:49+0000 lvl=warn msg="failed to open private leg" id=525d61fa0555 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:19:54+0000 lvl=info msg="join connections" obj=join id=ce706a2f472f l=127.0.0.1:50122 r=195.10.99.100:59967
+t=2025-05-08T22:19:59+0000 lvl=warn msg="failed to open private leg" id=8e7b2639ec4d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:20:01+0000 lvl=warn msg="failed to open private leg" id=d522461d8c41 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:20:03+0000 lvl=warn msg="failed to open private leg" id=9cfc5b2e8891 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:20:06+0000 lvl=warn msg="failed to open private leg" id=dfb8b1681811 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-08T22:20:09+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-08T22:20:09+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-08T22:20:09+0000 lvl=info msg="session closing" obj=tunnels.session err=nil

@@ -12,7 +12,7 @@ logging.basicConfig(filename='tcp_server_v8.log', level=logging.INFO,
 # Server configuration
 version = "8.0"
 HOST = '127.0.0.1'  # Localhost for cron
-PORT = 50120
+PORT = 50122
 API_URL = 'https://iot.satgroupe.com'  # Adjust to your cPanel subdomain
 SYNC_DATA_URL = f'{API_URL}/syncing_data'
 COMMAND_QUEUE_URL = f'{API_URL}/command_queue'
@@ -155,10 +155,11 @@ def parse_avl_packet(data, imei, conn):
         data_length = struct.unpack('>I', data[offset:offset+4])[0]
         logging.info(f"data_length:{data_length}")
         offset += 4
-        codec_id = data[offset:offset+2]
+        codec_id = data[offset:offset+1]
+        codec_id_1 = data[offset]
         offset += 1
         if codec_id != 0x8E:
-            logging.warning(f"Unsupported codec ID: {codec_id}, packet: {data.hex()}")
+            logging.warning(f"Unsupported codec ID: {codec_id}, codec ID_HEX: {codec_id.hex()}, codec_id_1: {codec_id_1} packet: {data}")
             return 0
         number_of_data = struct.unpack('>H', data[offset:offset+2])[0]
         offset += 2
