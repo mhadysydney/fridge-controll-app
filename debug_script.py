@@ -29,6 +29,7 @@ def verify_crc(data, expected_crc):
 
 def parse_timestamp(data, offset, length=8):
     try:
+        print(f"timestamp: {data[offset:offset+length]}")
         if len(data[offset:offset+length]) != length:
             logging.error(f"Insufficient data for timestamp at offset {offset}, length {length}, packet: {data.hex()}")
             return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
@@ -160,8 +161,9 @@ def parse_avl_packet(data, imei, conn):
         if codec_id != 0x8E:
             logging.warning(f"Unsupported codec ID: {codec_id}, codec ID_HEX: {codec_id.hex()}")
             return 0
-        number_of_data = struct.unpack('>H', data[offset:offset+2])[0]
-        offset += 2
+        print(f"data: {data[offset]}")
+        number_of_data =data[offset]
+        
         logging.info(f"Parsing {number_of_data} records for IMEI: {imei}, codec: {codec_id}")
 
         # Verify CRC
@@ -169,7 +171,7 @@ def parse_avl_packet(data, imei, conn):
         if not verify_crc(data[4:-4], crc):
             logging.error(f"CRC check failed, packet: {data.hex()}")
             return 0 """
-
+        offset += 1
         records = []
         for _ in range(number_of_data):
             if offset + 8 > len(data) - 4:
@@ -291,6 +293,7 @@ def parse_avl_packet(data, imei, conn):
 
         # Send data to API
         payload = {'imei': imei, 'records': records}
+        logging.info(f"payload: {payload}")
         try:
             response = requests.post(SYNC_DATA_URL, json=payload, timeout=10)
             response.raise_for_status()

@@ -2,11 +2,7 @@
   <q-page class="q-pa-md">
     <!-- Header with Freezer Image -->
     <div class="q-mb-lg text-center">
-      <img
-        src="https://images.unsplash.com/photo-1622138812814-5b30c037f127?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-        alt="American Freezer"
-        class="freezer-image"
-      />
+      <img src="/icons/freezer.png" alt="American Freezer" class="freezer-image" />
       <h4 class="q-mt-md text-h5 text-weight-bold">Smart Fridge Control</h4>
     </div>
 
@@ -88,8 +84,10 @@ export default {
 
     // Circular progress (0-100%)
     const progressValue = computed(() => {
-      if (!deactivateTime.value) return 0
       const now = new Date()
+      if (!deactivateTime.value) {
+        return 0
+      }
       const end = new Date(deactivateTime.value)
       const total = 60 * 60 * 1000 // 1 hour in ms
       const remaining = Math.max(0, end - now)
@@ -110,14 +108,14 @@ export default {
     // Fetch status every 10 seconds
     const fetchStatus = async () => {
       try {
+        // Fetch power status (IO ID 66)
+        const powerResponse = await axios.get(`${apiBaseUrl}/power_status/${imei}`)
+        powerStatus.value = powerResponse.data.power_status
+
         // Fetch fridge status
         const response = await axios.get(`${apiBaseUrl}/dout1_status/${imei}`)
         fridgeStatus.value = response.data.dout1_active
         deactivateTime.value = response.data.deactivate_time
-
-        // Fetch power status (IO ID 66)
-        const powerResponse = await axios.get(`${apiBaseUrl}/power_status/${imei}`)
-        powerStatus.value = powerResponse.data.power_status
       } catch (error) {
         console.error('Error fetching status:', error)
       }
