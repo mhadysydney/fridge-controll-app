@@ -2,37 +2,44 @@
   <q-page class="q-pa-md">
     <!-- Header with Freezer Image -->
     <div class="q-mb-lg text-center">
-      <img src="/icons/freezer.png" alt="American Freezer" class="freezer-image" />
       <h4 class="q-mt-md text-h5 text-weight-bold">Smart Fridge Control</h4>
     </div>
 
     <!-- Status Cards -->
     <div class="q-gutter-md row justify-center">
       <!-- Fridge Status -->
-      <q-card class="status-card col-5">
+      <q-card class="status-card col">
         <q-card-section class="text-center">
-          <q-icon
-            :name="fridgeStatus ? 'ac_unit' : 'power_off'"
-            size="lg"
-            :color="fridgeStatus ? 'green' : 'grey'"
-          />
-          <div class="q-mt-sm text-subtitle1">Fridge {{ fridgeStatus ? 'On' : 'Off' }}</div>
+          <q-img
+            src="/icons/freezer.jpg"
+            alt="American Freezer"
+            width="150px"
+            height="auto"
+            class="freezer-image"
+          >
+            <div class="column items-center full-width text-center bg-transparent">
+              <div class="col full-width">
+                <q-icon name="ac_unit" size="lg" :color="!fridgeStatus ? 'green' : 'grey'" />
+              </div>
+              <div class="col full-width">
+                <q-icon name="circle" size="lg" :color="powerStatus ? 'red' : 'grey'" />
+              </div>
+            </div>
+          </q-img>
+
+          <!-- <div class="q-mt-sm text-subtitle1">Fridge {{ !fridgeStatus ? 'On' : 'Off' }}</div> -->
         </q-card-section>
       </q-card>
 
       <!-- Power Source -->
-      <q-card class="status-card col-5">
+      <!-- <q-card class="status-card col">
         <q-card-section class="text-center">
-          <q-icon
-            :name="powerStatus ? 'plug_circle' : 'power_off'"
-            size="lg"
-            :color="powerStatus ? 'green' : 'red'"
-          />
+          <q-icon name="plug_circle" size="lg" :color="powerStatus ? 'green' : 'red'" />
           <div class="q-mt-sm text-subtitle1">
             {{ powerStatus ? 'Plugged In' : 'Unplugged' }}
           </div>
         </q-card-section>
-      </q-card>
+      </q-card> -->
     </div>
 
     <!-- Circular Progress for Defrost Countdown -->
@@ -41,8 +48,9 @@
         show-value
         :value="progressValue"
         size="150px"
+        reverse
         :thickness="0.2"
-        color="primary"
+        :color="!fridgeStatus ? 'primary' : 'red'"
         track-color="grey-3"
         class="q-ma-md"
       >
@@ -51,7 +59,7 @@
         </div>
       </q-circular-progress>
       <div class="q-mt-sm text-subtitle1">
-        {{ fridgeStatus ? 'Time until Defrost Off' : 'Time until Defrost On' }}
+        {{ !fridgeStatus ? 'Time until Defrost Off' : 'Time until Defrost On' }}
       </div>
     </div>
 
@@ -59,7 +67,7 @@
     <div class="q-mt-lg text-center">
       <q-btn
         :label="fridgeStatus ? 'Turn Off Defrost' : 'Turn On Defrost'"
-        :color="fridgeStatus ? 'negative' : 'primary'"
+        :color="!fridgeStatus ? 'negative' : 'primary'"
         :loading="loading"
         @click="toggleDefrost"
         class="q-px-lg"
@@ -69,7 +77,7 @@
 </template>
 
 <script>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import axios from 'axios'
 
 export default {
@@ -83,7 +91,8 @@ export default {
     const loading = ref(false)
 
     // Circular progress (0-100%)
-    const progressValue = computed(() => {
+    const progressValue = ref(0)
+    /* computed(() => {
       const now = new Date()
       if (!deactivateTime.value) {
         return 0
@@ -91,19 +100,25 @@ export default {
       const end = new Date(deactivateTime.value)
       const total = 60 * 60 * 1000 // 1 hour in ms
       const remaining = Math.max(0, end - now)
+      console.log('remaining: ', remaining)
+      if (remaining <= 0) toggleDefrost()
       return (remaining / total) * 100
-    })
+    }) */
 
     // Format remaining time (MM:SS)
-    const remainingTime = computed(() => {
+    const remainingTime = ref(0)
+    /* computed(() => {
       if (!deactivateTime.value) return 'N/A'
       const now = new Date()
       const end = new Date(deactivateTime.value)
       const diff = Math.max(0, end - now) / 1000 // Seconds
       const minutes = Math.floor(diff / 60)
       const seconds = Math.floor(diff % 60)
-      return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
-    })
+      let r = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+      console.log('\nNow: ', now)
+
+      return r
+    }) */
 
     // Fetch status every 10 seconds
     const fetchStatus = async () => {
@@ -116,8 +131,34 @@ export default {
         const response = await axios.get(`${apiBaseUrl}/dout1_status/${imei}`)
         fridgeStatus.value = response.data.dout1_active
         deactivateTime.value = response.data.deactivate_time
+        console.log('deactivateTime: ', deactivateTime.value)
+        updateCountdown()
       } catch (error) {
         console.error('Error fetching status:', error)
+      }
+    }
+
+    const updateCountdown = () => {
+      console.log('updating countdown: ', deactivateTime.value)
+
+      if (deactivateTime.value) {
+        const now = new Date()
+        const deactivate = new Date(deactivateTime.value)
+        const diff = deactivate - now
+        progressValue.value = diff / (12 * 60 * 60 * 1000)
+        console.log('difff: ', diff, '\ndeacti: ', deactivate, '\nprogress: ', progressValue.value)
+
+        if (diff > 0) {
+          const seconds = Math.floor(diff / 1000)
+          const minutes = Math.floor(seconds / 60)
+          const hours = Math.floor(minutes / 60)
+          remainingTime.value = `${hours}:${minutes % 60}:${seconds % 60}`
+        } else {
+          remainingTime.value = ''
+          //fetchStatus()
+        }
+      } else {
+        remainingTime.value = ''
       }
     }
 

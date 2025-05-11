@@ -301,7 +301,7 @@ def parse_avl_packet(data, imei, conn):
         except requests.RequestException as e:
             logging.error(f"Failed to send data to API for IMEI {imei}: {e}")
 
-        number_of_data_end = struct.unpack('>H', data[offset:offset+2])[0]
+        number_of_data_end = struct.unpack('>H', data[-6:-8])[0]
         offset += 2
 
         if number_of_data != number_of_data_end:
