@@ -155,22 +155,22 @@ def parse_avl_packet(data, imei, conn):
         data_length = struct.unpack('>I', data[offset:offset+4])[0]
         logging.info(f"data_length:{data_length}")
         offset += 4
-        codec_id = data[offset:offset+1]
-        codec_id_1 = data[offset]
+        codec_id = data[offset]
         offset += 1
         if codec_id != 0x8E:
-            logging.warning(f"Unsupported codec ID: {codec_id}, codec ID_HEX: {codec_id.hex()}, codec_id_1: {codec_id_1} packet: {data}")
+            logging.warning(f"Unsupported codec ID: {codec_id}, codec ID_HEX: {codec_id.hex()}")
             return 0
-        number_of_data = struct.unpack('>H', data[offset:offset+2])[0]
-        offset += 2
-        logging.info(f"Parsing {number_of_data} records for IMEI: {imei}")
+        print(f"data: {data[offset]}")
+        number_of_data =data[offset]
+        
+        logging.info(f"Parsing {number_of_data} records for IMEI: {imei}, codec: {codec_id}")
 
         # Verify CRC
         """ crc = struct.unpack('>I', data[-4:])[0]
         if not verify_crc(data[4:-4], crc):
             logging.error(f"CRC check failed, packet: {data.hex()}")
             return 0 """
-
+        offset += 1
         records = []
         for _ in range(number_of_data):
             if offset + 8 > len(data) - 4:
@@ -292,6 +292,7 @@ def parse_avl_packet(data, imei, conn):
 
         # Send data to API
         payload = {'imei': imei, 'records': records}
+        logging.info(f"payload: {payload}")
         try:
             response = requests.post(SYNC_DATA_URL, json=payload, timeout=10)
             response.raise_for_status()
@@ -299,9 +300,9 @@ def parse_avl_packet(data, imei, conn):
         except requests.RequestException as e:
             logging.error(f"Failed to send data to API for IMEI {imei}: {e}")
 
-        number_of_data_end = struct.unpack('>H', data[offset:offset+2])[0]
+        number_of_data_end = data[-5]
         offset += 2
-
+        logging.info(f"number_of_data_end {number_of_data_end}")
         if number_of_data != number_of_data_end:
             logging.error(f"Number of data mismatch: Start={number_of_data}, End={number_of_data_end}, packet: {data.hex()}")
             return 0
@@ -310,6 +311,7 @@ def parse_avl_packet(data, imei, conn):
     except Exception as e:
         logging.error(f"Error parsing AVL packet for IMEI {imei}: {e}, packet: {data.hex()}")
         return 0
+
 
 def main():
     logging.info(f"TCP server v{version} ")

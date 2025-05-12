@@ -59,7 +59,7 @@
         </div>
       </q-circular-progress>
       <div class="q-mt-sm text-subtitle1">
-        {{ !fridgeStatus ? 'Time until Defrost Off' : 'Time until Defrost On' }}
+        {{ !fridgeStatus ? 'Time until Defrost On' : 'Time until Defrost Off' }}
       </div>
     </div>
 
@@ -67,7 +67,7 @@
     <div class="q-mt-lg text-center">
       <q-btn
         :label="fridgeStatus ? 'Turn Off Defrost' : 'Turn On Defrost'"
-        :color="!fridgeStatus ? 'negative' : 'primary'"
+        :color="fridgeStatus ? 'negative' : 'primary'"
         :loading="loading"
         @click="toggleDefrost"
         class="q-px-lg"
@@ -89,9 +89,10 @@ export default {
     const powerStatus = ref(false)
     const deactivateTime = ref(null)
     const loading = ref(false)
+    const total = ref(null)
 
     // Circular progress (0-100%)
-    const progressValue = ref(0)
+    const progressValue = ref(null)
     /* computed(() => {
       const now = new Date()
       if (!deactivateTime.value) {
@@ -145,7 +146,7 @@ export default {
         const now = new Date()
         const deactivate = new Date(deactivateTime.value)
         const diff = deactivate - now
-        progressValue.value = diff / (12 * 60 * 60 * 1000)
+        if (!total.value) total.value = diff
         console.log('difff: ', diff, '\ndeacti: ', deactivate, '\nprogress: ', progressValue.value)
 
         if (diff > 0) {
@@ -153,7 +154,9 @@ export default {
           const minutes = Math.floor(seconds / 60)
           const hours = Math.floor(minutes / 60)
           remainingTime.value = `${hours}:${minutes % 60}:${seconds % 60}`
+          progressValue.value = (diff / total.value) * 100
         } else {
+          toggleDefrost()
           remainingTime.value = ''
           //fetchStatus()
         }

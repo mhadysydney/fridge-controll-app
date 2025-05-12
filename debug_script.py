@@ -29,7 +29,7 @@ def verify_crc(data, expected_crc):
 
 def parse_timestamp(data, offset, length=8):
     try:
-        print(f"timestamp: {data[offset:offset+length]}")
+        #print(f"timestamp: {data[offset:offset+length]}")
         if len(data[offset:offset+length]) != length:
             logging.error(f"Insufficient data for timestamp at offset {offset}, length {length}, packet: {data.hex()}")
             return datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
@@ -301,9 +301,9 @@ def parse_avl_packet(data, imei, conn):
         except requests.RequestException as e:
             logging.error(f"Failed to send data to API for IMEI {imei}: {e}")
 
-        number_of_data_end = struct.unpack('>H', data[-6:-8])[0]
+        number_of_data_end = data[-5]
         offset += 2
-
+        logging.info(f"number_of_data_end {number_of_data_end}")
         if number_of_data != number_of_data_end:
             logging.error(f"Number of data mismatch: Start={number_of_data}, End={number_of_data_end}, packet: {data.hex()}")
             return 0
