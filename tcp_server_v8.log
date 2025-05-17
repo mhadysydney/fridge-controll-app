@@ -88,3 +88,407 @@ tcp_server_v8.py crashed, restarting
 ---------------------------------------------------------------------
 
 
+Started tcp_server_v8.py (PID: 36309)
+New ngrok URL: tcp://7.tcp.eu.ngrok.io:10627
+Started ngrok (PID: 36310), sms_state: 0
+Extracted ngrok URL: tcp://7.tcp.eu.ngrok.io:10627 (Hostname: 7.tcp.eu.ngrok.io, Port: 10627)
+2025-05-12 17:44:15,277:INFO:TCP server v8.0 
+2025-05-12 17:44:15,277:INFO:TCP server v8.0 started on 127.0.0.1:50122
+Successfully sent ngrok URL to FMB920 (ICCID: 8944538532057627725, Response: 200, sms_state: 1)
+Device restarted successfully!
+
+-------------------------------------------
+
+
+Started tcp_server_v8.py (PID: 37832)
+2025-05-12 18:08:04,614:INFO:TCP server v8.0 
+2025-05-12 18:08:04,614:INFO:TCP server v8.0 started on 127.0.0.1:50122
+New ngrok URL: tcp://2.tcp.eu.ngrok.io:16270
+Started ngrok (PID: 37833), sms_state: 0
+Extracted ngrok URL: tcp://2.tcp.eu.ngrok.io:16270 (Hostname: 2.tcp.eu.ngrok.io, Port: 16270)
+Successfully sent ngrok URL to FMB920 (ICCID: 8944538532057627725, Response: 200, sms_state: 1)
+Device restarted successfully!
+
+------------------------
+
+
+Started tcp_server_v8.py (PID: 39296)
+2025-05-12 18:18:25,245:INFO:TCP server v8.0 
+2025-05-12 18:18:25,246:INFO:TCP server v8.0 started on 127.0.0.1:50122
+Started ngrok (PID: 39297), sms_state: 0
+New ngrok URL: tcp://2.tcp.eu.ngrok.io:12977
+
+-----------------------------------------------------
+
+2025-05-12 18:31:49 Started tcp_server_v8.py (PID: 40328)
+2025-05-12 18:31:49,733:INFO:TCP server v8.0 
+2025-05-12 18:31:49,733:INFO:TCP server v8.0 started on 127.0.0.1:50122
+2025-05-12 18:31:52 Started ngrok (PID: 40330), sms_state: 0
+2025-05-12 18:31:52 New ngrok URL: tcp://6.tcp.eu.ngrok.io:17451
+--------------------------------------------------------
+
+2025-05-12 18:36:15 Started tcp_server_v8.py (PID: 40719)
+2025-05-12 18:36:15,687:INFO:TCP server v8.0 
+2025-05-12 18:36:15,687:INFO:TCP server v8.0 started on 127.0.0.1:50122
+2025-05-12 18:36:20 Started ngrok (PID: 40721), sms_state: 0
+2025-05-12 18:36:20 New ngrok URL: tcp://4.tcp.eu.ngrok.io:12943
+---------------------------------------------
+
+2025-05-12 18:47:30 Started tcp_server_v8.py (PID: 42657)
+2025-05-12 18:47:30,999:INFO:TCP server v8.0 
+2025-05-12 18:47:30,999:INFO:TCP server v8.0 started on 127.0.0.1:50122
+2025-05-12 18:47:37 Started ngrok (PID: 42659), sms_state: 0
+2025-05-12 18:47:37 New ngrok URL: tcp://2.tcp.eu.ngrok.io:11672
+--------------------------------------------------
+
+2025-05-12 18:50:20 Started tcp_server_v8.py (PID: 44187)
+2025-05-12 18:50:20 Enter sleeping mode
+2025-05-12 18:50:20,645:INFO:TCP server v8.0 
+2025-05-12 18:50:20,645:INFO:TCP server v8.0 started on 127.0.0.1:50122
+2025-05-12 18:50:27 Exit sleeping mode
+2025-05-12 18:50:27 Started ngrok (PID: 44189), sms_state: 0
+2025-05-12 18:50:27 New ngrok URL: tcp://2.tcp.eu.ngrok.io:14671
+
+------------------------------------------------
+
+2025-05-12 18:52:25 Started tcp_server_v8.py (PID: 45320)
+2025-05-12 18:52:25 Enter sleeping mode
+2025-05-12 18:52:25,500:INFO:TCP server v8.0 
+2025-05-12 18:52:25,500:INFO:TCP server v8.0 started on 127.0.0.1:50122
+2025-05-12 18:52:32 Exit sleeping mode
+2025-05-12 18:52:32 Started ngrok (PID: 45322), sms_state: 0
+2025-05-12 18:52:32 New ngrok URL: tcp://0.tcp.eu.ngrok.io:14003
+2025-05-12 18:52:32 Extracted ngrok URL: tcp://0.tcp.eu.ngrok.io:14003 (Hostname: 0.tcp.eu.ngrok.io, Port: 14003)
+2025-05-12 18:52:34 Successfully sent ngrok URL to FMB920 (ICCID: 8944538532057627725, Response: 200, sms_state: 1)
+2025-05-12 18:52:44 Device restarted successfully!
+2025-05-12 18:54:45,459:INFO:Connected by ('127.0.0.1', 57450)
+2025-05-12 18:54:45,469:INFO:IMEI received: 350317177312182
+2025-05-12 18:54:47,792:INFO:Sent Codec 12 command to IMEI 350317177312182: setdigout 1
+2025-05-12 18:54:47,851:ERROR:Invalid codec ID: 142, packet: 00000000000004958e1200000195590fbaf00000000000000000000000000000000000000013000700ef010015030001010071642a34002a38002a4400000b00422f88001800000043101d0009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b0000000000000195590fd26b000000000000000000000000000000002a4c0001000000000000000000012a4c00010100000195590fd275000000000000000000000000000000002a4d0001000000000000000000012a4d000101000001955910a5500000000000000000000000000000000000000013000700ef010015030001010071642a34002a38002a4400000b00422f8b00180000004310210009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b00000000000001955910bccb000000000000000000000000000000002a4c0001000000000000000000012a4c000101000001955910bcd5000000000000000000000000000000002a4d0001000000000000000000012a4d0001010000019559118fb00000000000000000000000000000000000000013000700ef010015030001010071642a34002a38002a4400000b00422f88001800000043101c0009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b00000000000001955911a72b000000000000000000000000000000002a4c0001000000000000000000012a4c000101000001955911a735000000000000000000000000000000002a4d0001000000000000000000012a4d0001010000019559127a100000000000000000000000000000000000000013000700ef010015040001010071642a34002a38002a4400000b00422f28001800000043101d0009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b00000000000001955912918b000000000000000000000000000000002a4c0001000000000000000000012a4c0001010000019559129195000000000000000000000000000000002a4d0001000000000000000000012a4d00010100000195591364700000000000000000000000000000000000000013000700ef010015030001010071642a34002a38002a4400000b00422f2c001800000043101c0009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b000000000000019559137beb000000000000000000000000000000002a4c0001000000000000000000012a4c0001010000019559137bf5000000000000000000000000000000002a4d0001000000000000000000012a4d0001010000019559144ed00000000000000000000000000000000000000013000700ef01001503000101
+2025-05-12 18:54:47,851:ERROR:Command failed for IMEI 350317177312182: None
+2025-05-12 18:54:47,851:ERROR:Command 1 ('setdigout 1') failed for IMEI 350317177312182
+2025-05-12 18:54:47,851:INFO:Sent Codec 12 command to IMEI 350317177312182: setdigout 1
+2025-05-12 18:54:47,851:ERROR:Invalid preamble: 7431210, packet: 0071642a34002a38002a4400000b00422f2d001800000043101d0009002b00197fff001a7fff001c7fff0056ffff2a3000002a4800002a580000000100100024f10b00000000000001955914664b000000000000000000000000000000002a4c0001000000000000000000012a4c0001010000019559146655000000000000000000000000000000002a4d0001000000000000000000012a4d0001011200002a8c
+2025-05-12 18:54:47,851:ERROR:Command failed for IMEI 350317177312182: None
+2025-05-12 18:54:47,851:ERROR:Command 2 ('setdigout 1') failed for IMEI 350317177312182
+2025-05-12 18:54:47,852:INFO:Sent Codec 12 command to IMEI 350317177312182: setdigout 0
+2025-05-12 18:54:48,378:ERROR:Codec 12 response too short: 0 bytes, packet: 
+2025-05-12 18:54:48,378:ERROR:Command failed for IMEI 350317177312182: None
+2025-05-12 18:54:48,378:ERROR:Command 3 ('setdigout 0') failed for IMEI 350317177312182
+2025-05-12 18:54:48,378:INFO:Sent Codec 12 command to IMEI 350317177312182: setdigout 1
+2025-05-12 18:54:48,378:ERROR:Codec 12 response too short: 0 bytes, packet: 
+2025-05-12 18:54:48,378:ERROR:Command failed for IMEI 350317177312182: None
+2025-05-12 18:54:48,378:ERROR:Command 4 ('setdigout 1') failed for IMEI 350317177312182
+2025-05-12 18:54:48,378:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,378:ERROR:Command 5 ('setdigout 0') failed for IMEI 350317177312182
+2025-05-12 18:54:48,378:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,378:ERROR:Command 6 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 7 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 8 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 9 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 10 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 11 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 12 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 13 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 14 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 15 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 16 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 17 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 18 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 19 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 20 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 21 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 22 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 23 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 24 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,379:ERROR:Command 25 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,379:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 26 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 27 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 28 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 29 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 30 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 31 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 32 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 33 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 34 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 35 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 36 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 37 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 38 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 39 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 40 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 41 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 42 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 43 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 44 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 45 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,380:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,380:ERROR:Command 46 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 47 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 48 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 49 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 50 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 51 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 52 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 53 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 54 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 55 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 56 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 57 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 58 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 59 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 60 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 61 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 62 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 63 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 64 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 65 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,381:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,381:ERROR:Command 66 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 67 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 68 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 69 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 70 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 71 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 72 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 73 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 74 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 75 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 76 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 77 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 78 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 79 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 80 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 81 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 82 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 83 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 84 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 85 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 86 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 87 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,382:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,382:ERROR:Command 88 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 89 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 90 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 91 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 92 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 93 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 94 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 95 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 96 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 97 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 98 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 99 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 100 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 101 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 102 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 103 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 104 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 105 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 106 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 107 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,383:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,383:ERROR:Command 108 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 109 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 110 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 111 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 112 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 113 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 114 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 115 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 116 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 117 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 118 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 119 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 120 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 121 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 122 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 123 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 124 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 125 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 126 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 127 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 128 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,384:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,384:ERROR:Command 129 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 130 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 131 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 132 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 133 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 134 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 135 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 136 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 137 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 138 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 139 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 140 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 141 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 142 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 143 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 144 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 145 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 146 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,385:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,385:ERROR:Command 147 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 148 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 149 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 150 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 151 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 152 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 153 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 154 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 155 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 156 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 157 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 158 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 159 ('setdigout 0') failed for IMEI 350317177312182
+2025-05-12 18:54:48,386:ERROR:Error sending command to IMEI 350317177312182: [Errno 32] Broken pipe
+2025-05-12 18:54:48,386:ERROR:Command 160 (' setdigout 1 3600') failed for IMEI 350317177312182
+2025-05-12 18:54:48,387:WARNING:No AVL data received from ('127.0.0.1', 57450)
