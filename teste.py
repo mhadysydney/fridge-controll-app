@@ -52,23 +52,30 @@ def crc16_ibm(data: bytes) -> int:
 
 def build_codec12_packet_2(command):
     command_bytes = command.encode('utf-8')
-    #byt=command_bytes[:len(command)]
     command_length = len(command_bytes)
     data_field = struct.pack('>BBBI', 0x0C, 0x01, 0x05, command_length)+command_bytes + struct.pack('>B', 0x01)
     crc = crc16(data_field)
     print(f"crc: {crc:08x}")
-    packet = struct.pack('>I', 0) + struct.pack('>I', len(data_field)) + data_field + struct.pack('>Q', crc)
+    packet = struct.pack('>I', 0) + struct.pack('>I', len(data_field)) + data_field + struct.pack('>I', crc)
     return packet
 
 def parse_codec12_packet(packet):
     byte_from_hex=bytes.fromhex(packet)
-    print("unpacked_msg:",byte_from_hex[16:len(packet)-5])
+    print("unpacked_msg1:",byte_from_hex[16:-5].decode("utf-8"))
     unpack=byte_from_hex[16:-5].decode("utf-8")
     return unpack
+
+def build_codec12_packet_3(command):
+    command_bytes = command.encode('ascii')
+    command_length = len(command_bytes)
+    data_field = struct.pack('>BBBI', 0x0C, 0x01, 0x05, command_length) + command_bytes + struct.pack('>B', 0x01)
+    crc = crc16(data_field)
+    packet = struct.pack('>I', 0) + struct.pack('>I', len(data_field)) + data_field + struct.pack('>I', crc)
+    return packet
 
 if __name__ == "__main__":
     cmd="setdigout 1 4000\r\n"
     responsePacket="00000000000000900C010600000088494E493A323031392F372F323220373A3232205254433A323031392F372F323220373A3533205253543A32204552523A 312053523A302042523A302043463A302046473A3020464C3A302054553A302F302055543A3020534D533A30204E4F4750533A303A3330204750533A312053 41543A302052533A332052463A36352053463A31204D443A30010000C78F"
-    packet = build_codec12_packet_2(cmd)
+    packet = build_codec12_packet_3(cmd)
     print(f"packet:{packet}\nfrom commande: {cmd}")
-    print("unpacked msg: ",parse_codec12_packet(responsePacket))
+    print("unpacked msg2: ",parse_codec12_packet(responsePacket))

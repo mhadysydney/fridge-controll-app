@@ -16,12 +16,12 @@ PORT = 50122
 API_URL = 'https://iot.satgroupe.com'  # Adjust to your cPanel subdomain
 SYNC_DATA_URL = f'{API_URL}/syncing_data'
 COMMAND_QUEUE_URL = f'{API_URL}/command_queue'
-RESPONSE_TIMEOUT = 5
+RESPONSE_TIMEOUT = 8
 DOUT1_IO_ID = 179  # Added for DOUT1 control (from old script)
 POWER_IO_ID = 66   # Power status (from prior context)
 TIMEOUT_12H = 12 * 3600
 ACTIVATION_DURATION = 4000
-crc16 = crcmod.mkCrcFun(0x18005, initCrc=0x0000, rev=False)  # Updated to old script's CRC config
+crc16 = crcmod.mkCrcFun(0x18005, initCrc=0x0000, rev=True)  # Updated to old script's CRC config
 
 def verify_crc(data, expected_crc):
     calculated_crc = crc16(data)
@@ -60,7 +60,9 @@ def build_codec12_packet(command):
 
 def parse_codec12_response(data):
     try:
-        if len(data) < 14:
+        response=data[16:-5].decode("utf-8")
+        logging.info(f"Command response parsed: {response}")
+        """ if len(data) < 14:
             logging.error(f"Codec 12 response too short: {len(data)} bytes, packet: {data.hex()}")
             return None
         offset = 0
@@ -95,7 +97,7 @@ def parse_codec12_response(data):
         if not verify_crc(data[8:offset+1], crc):
             logging.error(f"CRC check failed for Codec 12 response, packet: {data.hex()}")
             return None
-        logging.info(f"Parsed Codec 12 response: type={response_type}, data='{response}'")
+        logging.info(f"Parsed Codec 12 response: type={response_type}, data='{response}'") """
         return response
     except Exception as e:
         logging.error(f"Failed to parse Codec 12 response: {e}, packet: {data.hex()}")
@@ -107,9 +109,10 @@ def send_command_with_response(conn, command, imei):
         conn.sendall(packet)
         logging.info(f"Sent Codec 12 command to IMEI {imei}: {command}")
         conn.settimeout(RESPONSE_TIMEOUT)
+        bad_format="unknown command or invalid format"
         response_data = conn.recv(1024)
         response = parse_codec12_response(response_data)
-        if response and 'OK' in response:
+        if response and bad_format != response:
             logging.info(f"Command successful for IMEI {imei}: {response}")
             return True
         else:
@@ -349,7 +352,8 @@ def main():
                     logging.debug(f"Sent IMEI acknowledgment to {addr}")
 
                     # Handle AVL data
-                    send_queued_commands(conn, imei)
+                    send_command_with_response(conn, "getver\r\n", imei)
+                    """ send_queued_commands(conn, imei)
                     data = conn.recv(4096)
                     if data:
                         num_records = parse_avl_packet(data, imei, conn)
@@ -359,7 +363,7 @@ def main():
                         else:
                             logging.warning(f"No records parsed or unsupported codec for IMEI {imei}")
                     else:
-                        logging.warning(f"No AVL data received from {addr}")
+                        logging.warning(f"No AVL data received from {addr}") """
                 except Exception as e:
                     logging.error(f"Error handling client {addr}: {e}, packet: {data.hex() if 'data' in locals() else ''}")
                 finally:
