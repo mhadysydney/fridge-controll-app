@@ -32,3 +32,6 @@ yarn-error.log*
 # local .env files
 .env.local*
 venv/*
+test.conf
+auth.conf
+auth_token.conf
