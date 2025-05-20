@@ -36,7 +36,7 @@ sms_api_auth(){
     password=$(grep "mdp=" fmb-control-app/auth.conf | cut -d'=' -f2)
     auth_response=$(curl -s -X POST \
             -H 'content-type: application/*+json' \
-            -d '{"username":"mhady.itman@satgroupe.com","password":"hWpQHG9h5U%!2x"}'\
+            -d '{"username":"","password":""}'\
             https://api.worldov.net/v1/auth/login
       )
     if [$auth_response -neq ""];then
