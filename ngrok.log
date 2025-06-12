@@ -2064,3 +2064,475 @@ t=2025-05-12T18:55:04+0000 lvl=info msg="no more state changes" obj=tunnels.sess
 t=2025-05-12T18:55:04+0000 lvl=info msg="failed to accept connection: Listener closed" obj=tunnels.session clientid=3b25a6583eee241fbfc4174232025778
 t=2025-05-12T18:55:04+0000 lvl=warn msg="Stopping forwarder" name=command_line acceptErr="failed to accept connection: Listener closed"
 t=2025-05-12T18:55:04+0000 lvl=warn msg="Error restarting forwarder" name=command_line err="failed to start tunnel: session closed"
+t=2025-05-17T17:10:21+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-17T17:10:21+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-17T17:10:21+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-17T17:10:21+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-17T17:10:28+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-17T17:10:28+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-17T17:10:29+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:14961
+t=2025-05-17T17:10:43+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-17T17:10:43+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-17T17:10:43+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-17T17:10:43+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=cd1bf2b8a245 err="reconnecting session closed"
+t=2025-05-20T20:06:47+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T20:06:47+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T20:06:47+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T20:06:47+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T20:06:49+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T20:06:49+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T20:06:50+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:17281
+t=2025-05-20T20:06:52+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-20T20:06:57+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T20:06:57+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T20:06:57+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T20:06:57+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=0cf34b5fcdc6 err="reconnecting session closed"
+t=2025-05-20T20:07:47+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T20:07:47+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T20:07:47+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T20:07:47+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T20:07:48+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T20:07:48+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T20:07:48+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:12876
+t=2025-05-20T20:09:17+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T20:09:17+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T20:09:17+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T20:09:17+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=3d55d6cceef0 err="reconnecting session closed"
+t=2025-05-20T20:16:40+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T20:16:40+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T20:16:40+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T20:16:40+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T20:16:45+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-20T20:16:50+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to dial ngrok server with address \"connect.ngrok-agent.com:443\": dial tcp: lookup connect.ngrok-agent.com: i/o timeout"
+t=2025-05-20T20:16:53+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T20:16:53+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T20:16:54+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:14629
+t=2025-05-20T20:20:32+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T20:20:32+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T20:20:32+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T20:20:32+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=79e89f159e9c err="reconnecting session closed"
+t=2025-05-20T21:29:53+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T21:29:53+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T21:29:53+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T21:29:53+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T21:29:54+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T21:29:54+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T21:29:54+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:10623
+t=2025-05-20T21:30:08+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T21:30:08+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T21:30:08+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T21:30:08+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=8f3762f7bf25 err="reconnecting session closed"
+t=2025-05-20T21:32:40+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T21:32:40+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T21:32:40+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T21:32:40+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T21:32:41+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T21:32:41+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T21:32:41+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:10131
+t=2025-05-20T21:32:45+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-20T21:33:00+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T21:33:00+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T21:33:00+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T21:33:00+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=07ebdc21a066 err="reconnecting session closed"
+t=2025-05-20T21:33:47+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T21:33:47+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T21:33:47+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T21:33:47+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T21:33:49+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T21:33:49+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T21:33:49+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:11026
+t=2025-05-20T21:33:52+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-20T21:35:07+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T21:35:07+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T21:35:07+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T21:46:17+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T21:46:17+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T21:46:17+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T21:46:17+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T21:46:18+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T21:46:18+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T21:46:18+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://4.tcp.eu.ngrok.io:18552
+t=2025-05-20T21:46:43+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T21:46:43+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T21:46:43+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T21:46:43+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=0a5de2cd5401 err="reconnecting session closed"
+t=2025-05-20T22:06:08+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T22:06:08+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T22:06:08+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T22:06:08+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T22:06:10+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T22:06:10+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T22:06:10+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:11615
+t=2025-05-20T22:06:20+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T22:06:20+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T22:06:20+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T22:07:54+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T22:07:54+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T22:07:54+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T22:07:54+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T22:07:55+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T22:07:55+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T22:07:55+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://0.tcp.eu.ngrok.io:18861
+t=2025-05-20T22:08:27+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T22:08:27+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T22:08:27+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T22:08:27+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=9f2d2e2cc2c4 err="reconnecting session closed"
+t=2025-05-20T22:14:58+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-20T22:14:58+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-20T22:14:58+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-20T22:14:58+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-20T22:15:00+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-20T22:15:00+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-20T22:15:00+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://2.tcp.eu.ngrok.io:19012
+t=2025-05-20T22:18:57+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-20T22:18:57+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-20T22:18:57+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-20T22:18:57+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=ea8017a38986 err="reconnecting session closed"
+t=2025-05-21T09:33:49+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T09:33:49+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T09:33:49+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T09:33:49+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T09:33:51+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T09:33:51+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T09:33:52+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:15886
+t=2025-05-21T09:33:54+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T09:36:47+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T09:36:47+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T09:36:47+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T09:36:47+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=ebe746340c08 err="reconnecting session closed"
+t=2025-05-21T11:50:43+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T11:50:43+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T11:50:43+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T11:50:43+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T11:50:48+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T11:50:48+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T11:50:49+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:13930
+t=2025-05-21T11:53:22+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T11:53:22+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T11:53:22+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T11:53:22+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=c543072fdbb6 err="reconnecting session closed"
+t=2025-05-21T11:59:24+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T11:59:24+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T11:59:24+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T11:59:25+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T11:59:29+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T11:59:29+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T11:59:29+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://6.tcp.eu.ngrok.io:13893
+t=2025-05-21T12:01:28+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:01:28+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:01:28+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:01:28+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=8a20c4bd5260 err="reconnecting session closed"
+t=2025-05-21T12:01:28+0000 lvl=info msg="failed to accept connection: Listener closed" obj=tunnels.session clientid=da9b409e465425ebb9a9adce66aaa45d
+t=2025-05-21T12:01:28+0000 lvl=warn msg="Stopping forwarder" name=command_line acceptErr="failed to accept connection: Listener closed"
+t=2025-05-21T12:01:28+0000 lvl=warn msg="Error restarting forwarder" name=command_line err="failed to start tunnel: session closed"
+t=2025-05-21T12:01:28+0000 lvl=info msg="no more state changes" obj=tunnels.session
+t=2025-05-21T12:02:09+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:02:09+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:02:09+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:02:09+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:02:14+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T12:02:24+0000 lvl=eror msg="failed to reconnect session" obj=tunnels.session err="failed to send authentication request: failed to fetch CRL. errors encountered: timed out fetching CRL"
+t=2025-05-21T12:02:31+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T12:02:31+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T12:02:31+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://5.tcp.eu.ngrok.io:18751
+t=2025-05-21T12:03:29+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:03:29+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:03:29+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:03:29+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=ecc619d4d721 err="reconnecting session closed"
+t=2025-05-21T12:05:54+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:05:54+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:05:54+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:05:54+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:05:55+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T12:05:55+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T12:05:59+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T12:06:01+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:13246
+t=2025-05-21T12:06:18+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:06:18+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:06:18+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:06:18+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=b1cd3c50fd41 err="reconnecting session closed"
+t=2025-05-21T12:09:15+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:09:15+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:09:15+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:09:15+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:09:20+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T12:09:28+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:09:28+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:09:28+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:09:57+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:09:57+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:09:57+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:09:57+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:10:11+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T12:10:11+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T12:10:12+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://2.tcp.eu.ngrok.io:17210
+t=2025-05-21T12:10:20+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:10:20+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:10:20+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:10:20+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=59cea2cc0253 err="reconnecting session closed"
+t=2025-05-21T12:12:27+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:12:27+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:12:27+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:12:27+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:12:32+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T12:12:34+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T12:12:34+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T12:12:34+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://2.tcp.eu.ngrok.io:10049
+t=2025-05-21T12:12:59+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:12:59+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:12:59+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:12:59+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=7af577630486 err="reconnecting session closed"
+t=2025-05-21T12:48:47+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T12:48:47+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T12:48:47+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T12:48:47+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T12:48:52+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T12:48:58+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T12:48:58+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T12:48:59+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:11428
+t=2025-05-21T12:51:16+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T12:51:16+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T12:51:16+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T12:51:16+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=1978334472c3 err="reconnecting session closed"
+t=2025-05-21T15:06:15+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T15:06:15+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T15:06:15+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T15:06:15+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T15:06:17+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T15:06:17+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T15:06:17+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:15611
+t=2025-05-21T15:06:20+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T15:38:49+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T15:38:49+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T15:38:49+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T15:38:49+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T15:39:04+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T15:39:04+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T15:39:04+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://6.tcp.eu.ngrok.io:10176
+t=2025-05-21T16:05:10+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T16:05:10+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T16:05:10+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T16:05:10+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T16:05:15+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T16:05:18+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T16:05:18+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T16:05:20+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://0.tcp.eu.ngrok.io:15007
+t=2025-05-21T16:06:40+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T16:06:40+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T16:06:40+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T16:06:40+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=2b24509e65db err="reconnecting session closed"
+t=2025-05-21T16:09:12+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T16:09:12+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T16:09:12+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T16:09:12+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T16:09:20+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T16:09:20+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T16:09:20+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://6.tcp.eu.ngrok.io:11983
+t=2025-05-21T16:17:15+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T16:17:15+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T16:17:15+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T16:17:15+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=8cdfdc8bd396 err="reconnecting session closed"
+t=2025-05-21T16:20:43+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-21T16:20:43+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-21T16:20:43+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-21T16:20:43+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-21T16:20:45+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-21T16:20:45+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-21T16:20:46+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://0.tcp.eu.ngrok.io:16013
+t=2025-05-21T16:20:48+0000 lvl=warn msg="failed to check for update" obj=updater err="Post \"https://update.equinox.io/check\": context deadline exceeded"
+t=2025-05-21T16:22:44+0000 lvl=info msg="join connections" obj=join id=3f1cf2e5a166 l=127.0.0.1:50122 r=195.10.99.99:37216
+t=2025-05-21T16:22:56+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-21T16:22:56+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-21T16:22:56+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-21T16:22:56+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=2732ddf186be err="reconnecting session closed"
+t=2025-05-23T22:09:21+0000 lvl=info msg="no configuration paths supplied"
+t=2025-05-23T22:09:21+0000 lvl=info msg="using configuration at default config path" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml
+t=2025-05-23T22:09:21+0000 lvl=info msg="open config file" path=/home/mhady/snap/ngrok/265/.config/ngrok/ngrok.yml err=nil
+t=2025-05-23T22:09:21+0000 lvl=info msg="starting web service" obj=web addr=127.0.0.1:4040 allow_hosts=[]
+t=2025-05-23T22:09:25+0000 lvl=info msg="client session established" obj=tunnels.session
+t=2025-05-23T22:09:25+0000 lvl=info msg="tunnel session started" obj=tunnels.session
+t=2025-05-23T22:09:26+0000 lvl=info msg="started tunnel" obj=tunnels name=command_line addr=//localhost:50122 url=tcp://7.tcp.eu.ngrok.io:13101
+t=2025-05-23T22:10:24+0000 lvl=info msg="join connections" obj=join id=c28ade6aced9 l=127.0.0.1:50122 r=195.10.99.99:27977
+t=2025-05-23T22:10:35+0000 lvl=warn msg="failed to open private leg" id=e49f45e7f52e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:10:38+0000 lvl=warn msg="failed to open private leg" id=2524bff502cd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:10:39+0000 lvl=warn msg="failed to open private leg" id=371c9a3acaf9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:10:43+0000 lvl=info msg="join connections" obj=join id=439ac80ef2ca l=127.0.0.1:50122 r=195.10.99.99:9160
+t=2025-05-23T22:11:13+0000 lvl=warn msg="failed to open private leg" id=2748425d9311 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:18+0000 lvl=warn msg="failed to open private leg" id=b689544069f9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:22+0000 lvl=warn msg="failed to open private leg" id=297575e1a265 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:26+0000 lvl=warn msg="failed to open private leg" id=c92148ab5865 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:31+0000 lvl=warn msg="failed to open private leg" id=b44d2706fd14 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:36+0000 lvl=warn msg="failed to open private leg" id=931587ab7cd4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:41+0000 lvl=warn msg="failed to open private leg" id=5c0a56ed40c8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:11:45+0000 lvl=info msg="join connections" obj=join id=e86e549ede31 l=127.0.0.1:50122 r=195.10.99.99:9282
+t=2025-05-23T22:12:15+0000 lvl=warn msg="failed to open private leg" id=e84a03893321 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:17+0000 lvl=warn msg="failed to open private leg" id=1c5e1903d1c7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:19+0000 lvl=warn msg="failed to open private leg" id=b113ecdbeeb7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:21+0000 lvl=warn msg="failed to open private leg" id=bef02eeb25d4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:24+0000 lvl=warn msg="failed to open private leg" id=2c3c0452cb98 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:26+0000 lvl=warn msg="failed to open private leg" id=8495da77bf42 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:28+0000 lvl=warn msg="failed to open private leg" id=204ac2dd753d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:31+0000 lvl=warn msg="failed to open private leg" id=84af572aaf0c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:33+0000 lvl=warn msg="failed to open private leg" id=9679ad5c3407 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:34+0000 lvl=warn msg="failed to open private leg" id=a0106c55aed1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:37+0000 lvl=warn msg="failed to open private leg" id=bae1983126cc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:40+0000 lvl=warn msg="failed to open private leg" id=563ac133e212 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:43+0000 lvl=warn msg="failed to open private leg" id=f934b8fb359c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:12:45+0000 lvl=info msg="join connections" obj=join id=6249e41312bd l=127.0.0.1:50122 r=195.10.99.99:4162
+t=2025-05-23T22:13:13+0000 lvl=warn msg="failed to open private leg" id=524c2fe52216 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:15+0000 lvl=warn msg="failed to open private leg" id=0a82f13bb770 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:17+0000 lvl=warn msg="failed to open private leg" id=95fa185edb74 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:19+0000 lvl=warn msg="failed to open private leg" id=e0d10fa65eb1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:24+0000 lvl=warn msg="failed to open private leg" id=60fd5b6f34f4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:27+0000 lvl=warn msg="failed to open private leg" id=2d97404bbe5e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:30+0000 lvl=warn msg="failed to open private leg" id=5c99bdeb3440 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:32+0000 lvl=warn msg="failed to open private leg" id=c7f2553d3004 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:36+0000 lvl=warn msg="failed to open private leg" id=fb20210e4a4f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:39+0000 lvl=warn msg="failed to open private leg" id=f76dd009e5af typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:42+0000 lvl=warn msg="failed to open private leg" id=8a261e60b3ea typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:13:45+0000 lvl=info msg="join connections" obj=join id=23cee7020841 l=127.0.0.1:50122 r=195.10.99.99:40387
+t=2025-05-23T22:14:13+0000 lvl=warn msg="failed to open private leg" id=5a9e1bd31623 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:15+0000 lvl=warn msg="failed to open private leg" id=1904c6d75c36 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:17+0000 lvl=warn msg="failed to open private leg" id=fc410fc549f7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:19+0000 lvl=warn msg="failed to open private leg" id=dba23e47fc37 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:21+0000 lvl=warn msg="failed to open private leg" id=3a6948ec34da typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:23+0000 lvl=warn msg="failed to open private leg" id=5a825af9beb7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:25+0000 lvl=warn msg="failed to open private leg" id=f8581aed8c5c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:27+0000 lvl=warn msg="failed to open private leg" id=8535c66a8dfa typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:29+0000 lvl=warn msg="failed to open private leg" id=5deea44f9817 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:31+0000 lvl=warn msg="failed to open private leg" id=cb6bcd361131 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:33+0000 lvl=warn msg="failed to open private leg" id=5e010df3aa6a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:35+0000 lvl=warn msg="failed to open private leg" id=70736d4b480b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:37+0000 lvl=warn msg="failed to open private leg" id=c14d45316b66 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:40+0000 lvl=warn msg="failed to open private leg" id=fa1dc0154da3 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:14:44+0000 lvl=info msg="join connections" obj=join id=1579e2aff519 l=127.0.0.1:50122 r=195.10.99.99:52978
+t=2025-05-23T22:15:13+0000 lvl=warn msg="failed to open private leg" id=e410d043b15c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:15+0000 lvl=warn msg="failed to open private leg" id=df31e6071813 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:18+0000 lvl=warn msg="failed to open private leg" id=e9fc08b6088e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:20+0000 lvl=warn msg="failed to open private leg" id=aff4eadfc0c5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:22+0000 lvl=warn msg="failed to open private leg" id=63c2306ed608 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:26+0000 lvl=warn msg="failed to open private leg" id=85015f9682a5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:29+0000 lvl=warn msg="failed to open private leg" id=5bd07188d075 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:33+0000 lvl=warn msg="failed to open private leg" id=cec5c45d9ac2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:37+0000 lvl=warn msg="failed to open private leg" id=cd5b8cf47edd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:39+0000 lvl=warn msg="failed to open private leg" id=bb43a324b589 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:41+0000 lvl=warn msg="failed to open private leg" id=8560b25a9a9d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:15:44+0000 lvl=info msg="join connections" obj=join id=62ce5f04b12b l=127.0.0.1:50122 r=195.10.99.99:12820
+t=2025-05-23T22:16:13+0000 lvl=warn msg="failed to open private leg" id=c5a33bbcb24f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:15+0000 lvl=warn msg="failed to open private leg" id=a8d1be4383f7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:17+0000 lvl=warn msg="failed to open private leg" id=13e13558e1db typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:21+0000 lvl=warn msg="failed to open private leg" id=737bb48753cc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:24+0000 lvl=warn msg="failed to open private leg" id=2dcb1c853f53 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:26+0000 lvl=warn msg="failed to open private leg" id=de9806f4c2c9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:28+0000 lvl=warn msg="failed to open private leg" id=7a1657175b38 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:30+0000 lvl=warn msg="failed to open private leg" id=2149145b365c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:32+0000 lvl=warn msg="failed to open private leg" id=fcd27b7121e8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:34+0000 lvl=warn msg="failed to open private leg" id=59a6773a410b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:38+0000 lvl=warn msg="failed to open private leg" id=a118d8d980d4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:41+0000 lvl=warn msg="failed to open private leg" id=a11304fe2de2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:16:44+0000 lvl=info msg="join connections" obj=join id=115a533a5359 l=127.0.0.1:50122 r=195.10.99.99:42121
+t=2025-05-23T22:17:13+0000 lvl=warn msg="failed to open private leg" id=d04463662b45 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:15+0000 lvl=warn msg="failed to open private leg" id=e42fd6f29d56 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:17+0000 lvl=warn msg="failed to open private leg" id=49346668d24f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:20+0000 lvl=warn msg="failed to open private leg" id=f3f4693a5789 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:22+0000 lvl=warn msg="failed to open private leg" id=052ad4b65382 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:24+0000 lvl=warn msg="failed to open private leg" id=ee00faf4837c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:26+0000 lvl=warn msg="failed to open private leg" id=52218949b9b9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:28+0000 lvl=warn msg="failed to open private leg" id=13dc0d3e8324 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:30+0000 lvl=warn msg="failed to open private leg" id=e34fdc85b232 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:32+0000 lvl=warn msg="failed to open private leg" id=2eb7ee53e86a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:34+0000 lvl=warn msg="failed to open private leg" id=89c907b38912 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:36+0000 lvl=warn msg="failed to open private leg" id=f8bd3c9f9c8f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:38+0000 lvl=warn msg="failed to open private leg" id=d831debf7ff7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:40+0000 lvl=warn msg="failed to open private leg" id=cb0c7ddc5e1c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:42+0000 lvl=warn msg="failed to open private leg" id=1e59bd5d1679 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:17:44+0000 lvl=info msg="join connections" obj=join id=157703680ee1 l=127.0.0.1:50122 r=195.10.99.99:32738
+t=2025-05-23T22:18:13+0000 lvl=warn msg="failed to open private leg" id=5957834106c3 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:15+0000 lvl=warn msg="failed to open private leg" id=7b395825b1f8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:17+0000 lvl=warn msg="failed to open private leg" id=30860ed37ea7 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:19+0000 lvl=warn msg="failed to open private leg" id=c563a6af3113 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:22+0000 lvl=warn msg="failed to open private leg" id=efdb29ff5965 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:24+0000 lvl=warn msg="failed to open private leg" id=1cbcc8faa849 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:26+0000 lvl=warn msg="failed to open private leg" id=e54f1e33f64a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:27+0000 lvl=warn msg="failed to open private leg" id=d2571977a608 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:29+0000 lvl=warn msg="failed to open private leg" id=4cc725312958 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:31+0000 lvl=warn msg="failed to open private leg" id=eb3cc1666d85 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:33+0000 lvl=warn msg="failed to open private leg" id=e32dbdcb3958 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:35+0000 lvl=warn msg="failed to open private leg" id=696f86b46a05 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:37+0000 lvl=warn msg="failed to open private leg" id=2d3c86bdd8be typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:39+0000 lvl=warn msg="failed to open private leg" id=21c7d1ad4c1d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:41+0000 lvl=warn msg="failed to open private leg" id=6fae31fc4b73 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:43+0000 lvl=warn msg="failed to open private leg" id=87da342d5a53 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:18:46+0000 lvl=info msg="join connections" obj=join id=f89c68b9d06c l=127.0.0.1:50122 r=195.10.99.99:22108
+t=2025-05-23T22:19:17+0000 lvl=warn msg="failed to open private leg" id=24d843dd86c1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:19+0000 lvl=warn msg="failed to open private leg" id=b553bbd7eac4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:22+0000 lvl=warn msg="failed to open private leg" id=01f064bf9dee typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:25+0000 lvl=warn msg="failed to open private leg" id=cc3242f0f958 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:26+0000 lvl=warn msg="failed to open private leg" id=3784644434bc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:28+0000 lvl=warn msg="failed to open private leg" id=290ec720c87d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:30+0000 lvl=warn msg="failed to open private leg" id=bb76b45e31e6 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:33+0000 lvl=warn msg="failed to open private leg" id=367c0eb43e87 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:34+0000 lvl=warn msg="failed to open private leg" id=66dbb73e2dce typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:36+0000 lvl=warn msg="failed to open private leg" id=53b0aaa9c35f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:38+0000 lvl=warn msg="failed to open private leg" id=3ffd900da962 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:41+0000 lvl=warn msg="failed to open private leg" id=3cb2ad0437b1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:42+0000 lvl=warn msg="failed to open private leg" id=88f17e8159cc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:19:44+0000 lvl=info msg="join connections" obj=join id=db3ab8e08337 l=127.0.0.1:50122 r=195.10.99.99:61256
+t=2025-05-23T22:20:17+0000 lvl=warn msg="failed to open private leg" id=dc2a58dafee3 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:19+0000 lvl=warn msg="failed to open private leg" id=0b4159f083e1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:20+0000 lvl=warn msg="failed to open private leg" id=0f331af5c752 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:23+0000 lvl=warn msg="failed to open private leg" id=7eef0b0cb234 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:24+0000 lvl=warn msg="failed to open private leg" id=a4dc2ef306a9 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:27+0000 lvl=warn msg="failed to open private leg" id=0340671ba898 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:29+0000 lvl=warn msg="failed to open private leg" id=962edc4499cf typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:31+0000 lvl=warn msg="failed to open private leg" id=4f8ff7443fef typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:33+0000 lvl=warn msg="failed to open private leg" id=7f8e3d5cd538 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:35+0000 lvl=warn msg="failed to open private leg" id=4523cf31c44e typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:37+0000 lvl=warn msg="failed to open private leg" id=98649195bd89 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:39+0000 lvl=warn msg="failed to open private leg" id=4c3630096881 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:40+0000 lvl=warn msg="failed to open private leg" id=f5537376c736 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:43+0000 lvl=warn msg="failed to open private leg" id=e923b50a40f1 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:20:44+0000 lvl=info msg="join connections" obj=join id=3f26ce05dfb3 l=127.0.0.1:50122 r=195.10.99.99:5150
+t=2025-05-23T22:21:16+0000 lvl=warn msg="failed to open private leg" id=13bd0e67a074 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:19+0000 lvl=warn msg="failed to open private leg" id=24975ba58fc0 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:22+0000 lvl=warn msg="failed to open private leg" id=c72d4541ef7b typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:25+0000 lvl=warn msg="failed to open private leg" id=ba795caadd2f typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:27+0000 lvl=warn msg="failed to open private leg" id=d4012ed0aaea typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:29+0000 lvl=warn msg="failed to open private leg" id=d16a7484a7ba typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:32+0000 lvl=warn msg="failed to open private leg" id=279d584c2dd4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:34+0000 lvl=warn msg="failed to open private leg" id=b5c457911819 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:36+0000 lvl=warn msg="failed to open private leg" id=62c6392f3d46 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:38+0000 lvl=warn msg="failed to open private leg" id=b7215d2a30e5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:40+0000 lvl=warn msg="failed to open private leg" id=6a332d2d5ccc typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:42+0000 lvl=warn msg="failed to open private leg" id=9ea943183c38 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:21:44+0000 lvl=info msg="join connections" obj=join id=5a3a79d28997 l=127.0.0.1:50122 r=195.10.99.99:18303
+t=2025-05-23T22:22:18+0000 lvl=warn msg="failed to open private leg" id=b9124779a13d typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:20+0000 lvl=warn msg="failed to open private leg" id=6c0716114ccd typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:21+0000 lvl=warn msg="failed to open private leg" id=c62e3db00f58 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:24+0000 lvl=warn msg="failed to open private leg" id=7b9258b8c770 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:27+0000 lvl=warn msg="failed to open private leg" id=c3b517082c71 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:29+0000 lvl=warn msg="failed to open private leg" id=f4aa4690ccf8 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:31+0000 lvl=warn msg="failed to open private leg" id=a7ea5ef75c01 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:33+0000 lvl=warn msg="failed to open private leg" id=97d599700968 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:35+0000 lvl=warn msg="failed to open private leg" id=093a30dcf7ff typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:38+0000 lvl=warn msg="failed to open private leg" id=2a44726302a2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:40+0000 lvl=warn msg="failed to open private leg" id=9fb257bd986a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:43+0000 lvl=warn msg="failed to open private leg" id=13c63a082873 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:22:45+0000 lvl=info msg="join connections" obj=join id=0eda0e9a5683 l=127.0.0.1:50122 r=195.10.99.99:60524
+t=2025-05-23T22:23:17+0000 lvl=warn msg="failed to open private leg" id=e0147488a5e2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:20+0000 lvl=warn msg="failed to open private leg" id=4741e186e903 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:23+0000 lvl=warn msg="failed to open private leg" id=d0bb3243a6f4 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:25+0000 lvl=warn msg="failed to open private leg" id=fb48711e56e5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:27+0000 lvl=warn msg="failed to open private leg" id=2cc2df25d973 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:29+0000 lvl=warn msg="failed to open private leg" id=b8f27986c98a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:31+0000 lvl=warn msg="failed to open private leg" id=ea7bf80b506a typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:35+0000 lvl=warn msg="failed to open private leg" id=6f33c06b9c9c typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:37+0000 lvl=warn msg="failed to open private leg" id=03e4f279a7c2 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:39+0000 lvl=warn msg="failed to open private leg" id=35c8316e9965 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:41+0000 lvl=warn msg="failed to open private leg" id=ab20eab283a5 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:43+0000 lvl=warn msg="failed to open private leg" id=8ad8485445f3 typ=proxy privaddr=localhost:50122 err="dial tcp 127.0.0.1:50122: connect: connection refused"
+t=2025-05-23T22:23:45+0000 lvl=info msg="join connections" obj=join id=60a1de375df5 l=127.0.0.1:50122 r=195.10.99.99:42160
+t=2025-05-23T22:24:12+0000 lvl=info msg="Got quit command" obj=consoleui
+t=2025-05-23T22:24:12+0000 lvl=info msg="received stop request" obj=app stopReq="{err:<nil> restart:false}"
+t=2025-05-23T22:24:12+0000 lvl=info msg="session closing" obj=tunnels.session err=nil
+t=2025-05-23T22:24:12+0000 lvl=info msg="accept failed" obj=tunnels.session obj=csess id=cbd5c056a37d err="reconnecting session closed"

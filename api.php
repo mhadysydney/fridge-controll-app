@@ -1,11 +1,15 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
-$dbPath = '/home/yourusername/fmb_data.db';
-$logFile = '/home/yourusername/fmb_server.log';
+$dbPath = 'grok_fmb_data.db';
+$logFile = 'api_server.log';
 
 // Initialize SQLite database
 try {
@@ -52,7 +56,7 @@ try {
 // Log function
 function logMessage($message) {
     global $logFile;
-    file_put_contents($logFile, date('Y-m-d H:i:s') . ': ' . $message . "\n", FILE_APPEND);
+    file_put_contents($logFile, gmdate('Y-m-d H:i:s') . ': ' . $message . "\n", FILE_APPEND);
 }
 
 // POST /syncing_data
@@ -116,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_SERVER['REQUEST_URI'] === '/synci
 // GET /debug
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && $_SERVER['REQUEST_URI'] === '/debug') {
     try {
-        $testFile = '/home/yourusername/test.txt';
+        $testFile = 'test.txt';
         file_put_contents($testFile, 'Test file created');
         chmod($testFile, 0666);
 
@@ -183,8 +187,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && preg_match('#^/power_status/(.+)$#',
         $stmt->bindValue(':imei', $imei, SQLITE3_TEXT);
         $result = $stmt->execute();
         $row = $result->fetchArray(SQLITE3_ASSOC);
-        $response = ['power_status' => $row ? (bool)$row['io_value'] : false];
-        logMessage("Power status retrieved for IMEI $imei: " . ($row ? $row['io_value'] : 'none'));
+        $response = ['power_status' => (bool)($row && $row['io_value']> 10000)];
+        logMessage("Power status retrieved for IMEI $imei: " . ($row && $row['io_value'] > 10000));
         echo json_encode($response);
     } catch (Exception $e) {
         logMessage("Error in power_status for IMEI $imei: " . $e->getMessage());
@@ -217,6 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && preg_match('#^/command_queue/(.+)$#'
     $db->close();
     exit;
 }
+
 
 // POST /command_queue/update/<id>
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/command_queue/update/(\d+)$#', $_SERVER['REQUEST_URI'], $matches)) {
@@ -260,15 +265,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/dout1_control/(.+)$#
 
     $activate = $input['activate'];
     try {
-        $stmt = $db->prepare('SELECT dout1_active FROM dout1_state WHERE imei = :imei');
+        $stmt = $db->prepare('SELECT dout1_active FROM dout1_state WHERE imei = :imei limit 1');
         $stmt->bindValue(':imei', $imei, SQLITE3_TEXT);
         $result = $stmt->execute();
         $row = $result->fetchArray(SQLITE3_ASSOC);
-
+        $active = $activate ? 1 : 0;
+        if($row && $row['dout1_active']==$active){
+            logMessage("Command for IMEI $imei already in the same state: $active");
+            echo json_encode(['message' => "Command already in the same state: $active"]);
+        }
         if ($row || !$row) { // Allow initial state creation
-            $command = $activate ? 'setdigout 1' : 'setdigout 0';
+            $command = $activate ? 'setdigout 1 4000' : 'setdigout 0';
             $created_at = date('Y-m-d H:i:s');
-            $deactivate_time = $activate ? date('Y-m-d H:i:s', strtotime('+1 hour')) : null;
+            $deactivate_time = $activate ? gmdate('Y-m-d H:i:s', strtotime('+4000 seconds')) : gmdate('Y-m-d H:i:s', strtotime('+12 hour'));
             $stmt = $db->prepare('INSERT OR REPLACE INTO dout1_state (imei, dout1_active, deactivate_time) VALUES (:imei, :active, :deactivate_time)');
             $stmt->bindValue(':imei', $imei, SQLITE3_TEXT);
             $stmt->bindValue(':active', $activate ? 1 : 0, SQLITE3_INTEGER);
@@ -298,7 +307,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && preg_match('#^/dout1_control/(.+)$#
     exit;
 }
 
+// DELETE /truncate_table/<table>
+if ($_SERVER['REQUEST_METHOD'] === 'DELETE' && preg_match('#^/truncate_table/(.+)$#', $_SERVER['REQUEST_URI'], $matches)) {
+    $table = $matches[1];
+    try {
+        $stmt = $db->exec("DELETE from $table");
+        //$stmt->bindValue(':table', $table, SQLITE3_TEXT);
+        
+        //$stmt->execute();
+        logMessage("Table  $table truncated success!");
+        echo json_encode(['status' => 'success!']);
+    } catch (Exception $e) {
+        logMessage("Error truncating table $table: " . $e->getMessage());
+        http_response_code(500);
+        echo json_encode(['error' => 'Server error']);
+    }
+    $db->close();
+    exit;
+}
+
 http_response_code(404);
 echo json_encode(['error' => 'Endpoint not found']);
 $db->close();
+
 ?>

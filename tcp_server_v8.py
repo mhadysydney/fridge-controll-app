@@ -60,7 +60,7 @@ def build_codec12_packet(command):
 
 def parse_codec12_response(data):
     try:
-        response=data[16:-5].decode("utf-8")
+        response=data[15:-5].decode("utf-8")
         logging.info(f"Command response parsed: {response}")
         """ if len(data) < 14:
             logging.error(f"Codec 12 response too short: {len(data)} bytes, packet: {data.hex()}")
@@ -130,6 +130,7 @@ def send_command_with_response(conn, command, imei):
 def send_queued_commands(conn, imei):
     try:
         response = requests.get(f"{COMMAND_QUEUE_URL}/{imei}", timeout=10)
+        
         response.raise_for_status()
         commands = response.json().get('commands', [])
         logging.debug(f"Fetched {len(commands)} pending commands for IMEI {imei}")
@@ -352,8 +353,8 @@ def main():
                     logging.debug(f"Sent IMEI acknowledgment to {addr}")
 
                     # Handle AVL data
-                    send_command_with_response(conn, "getver\r\n", imei)
-                    """ send_queued_commands(conn, imei)
+                    #send_command_with_response(conn, "getver\r\n", imei)
+                    send_queued_commands(conn, imei)
                     data = conn.recv(4096)
                     if data:
                         num_records = parse_avl_packet(data, imei, conn)
@@ -363,7 +364,7 @@ def main():
                         else:
                             logging.warning(f"No records parsed or unsupported codec for IMEI {imei}")
                     else:
-                        logging.warning(f"No AVL data received from {addr}") """
+                        logging.warning(f"No AVL data received from {addr}")
                 except Exception as e:
                     logging.error(f"Error handling client {addr}: {e}, packet: {data.hex() if 'data' in locals() else ''}")
                 finally:

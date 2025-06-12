@@ -19,7 +19,11 @@
           >
             <div class="column items-center full-width text-center bg-transparent">
               <div class="col full-width">
-                <q-icon name="ac_unit" size="lg" :color="!fridgeStatus ? 'green' : 'grey'" />
+                <q-icon
+                  name="ac_unit"
+                  size="lg"
+                  :color="!fridgeStatus && powerStatus ? 'green' : 'grey'"
+                />
               </div>
               <div class="col full-width">
                 <q-icon name="circle" size="lg" :color="powerStatus ? 'red' : 'grey'" />
